@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Agents — NSAI</title>
+<meta name="description" content="17 enterprise AI agents for Indian businesses. Sales, support, legal, HR, and more." />
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.agents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.filter-btn {
+  padding: 7px 18px; border-radius: 99px; font-size: 13px; font-weight: 500;
+  border: 1px solid var(--border2); background: transparent; color: var(--text2);
+  cursor: pointer; font-family: var(--fu); transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.wip-bar {
+  background: linear-gradient(135deg, rgba(240,180,41,0.08), rgba(240,180,41,0.04));
+  border: 1px solid rgba(240,180,41,0.2); border-radius: 12px;
+  padding: 14px 20px; margin-bottom: 32px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; color: var(--gold);
+  font-family: var(--fm);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><video autoplay loop muted playsinline width="120" height="40" style="object-fit:contain;display:block;mix-blend-mode:screen">
+  <source src="../assets/logo.mp4" type="video/mp4">
+  NSAI
+</video></a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="agents.html" class="active">AI Agents</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Book a call →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a>
+  <a href="portfolio.html" onclick="toggleMobileNav()">Portfolio</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label" style="justify-content:center" class="reveal">Our AI Agents</div>
+    <h1 class="section-title reveal" style="text-align:center;max-width:700px;margin:0 auto 18px">17 agents. <em style="color:var(--accent);font-style:italic">One platform.</em></h1>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto 40px">Enterprise-grade agentic AI for every business function. Pick what you need — deploy in 24 hours.</p>
+    <div class="stats-bar reveal" style="max-width:700px;margin:0 auto">
+      <div class="stat-item"><div class="stat-val">3</div><div class="stat-label">Live in Beta</div></div>
+      <div class="stat-item"><div class="stat-val">14</div><div class="stat-label">Coming Soon</div></div>
+      <div class="stat-item"><div class="stat-val">24hr</div><div class="stat-label">Deploy time</div></div>
+      <div class="stat-item"><div class="stat-val">40%</div><div class="stat-label">Avg cost saved</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="section">
+  <div class="container">
+
+    <!-- Tabs -->
+    <div class="tabs-bar reveal">
+      <button class="tab-btn active" data-group="agents" data-tab="deployed" onclick="switchTab('agents','deployed',this)">🟢 Deployed Agents</button>
+      <button class="tab-btn" data-group="agents" data-tab="wip" onclick="switchTab('agents','wip',this)">🔨 Work in Progress</button>
+      <button class="tab-btn" data-group="agents" data-tab="all" onclick="switchTab('agents','all',this)">All 17 Agents</button>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar reveal" id="filterBar">
+      <button class="filter-btn active" onclick="filterAgents('All',this)">All</button>
+      <button class="filter-btn" onclick="filterAgents('Sales',this)">Sales</button>
+      <button class="filter-btn" onclick="filterAgents('Operations',this)">Operations</button>
+      <button class="filter-btn" onclick="filterAgents('Legal',this)">Legal</button>
+      <button class="filter-btn" onclick="filterAgents('HR',this)">HR</button>
+      <button class="filter-btn" onclick="filterAgents('Tech',this)">Tech</button>
+    </div>
+
+    <!-- Deployed tab -->
+    <div id="tab-deployed" class="agents-grid">
+      <!-- rendered by JS -->
+    </div>
+
+    <!-- WIP tab -->
+    <div id="tab-wip" style="display:none">
+      <div class="wip-bar">
+        ⏳ These agents are actively being built. Request early access or custom deployment below.
+      </div>
+      <div class="agents-grid" id="wip-grid"></div>
+    </div>
+
+    <!-- All tab -->
+    <div id="tab-all" style="display:none">
+      <div class="agents-grid" id="all-grid"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section reveal">
+      <div class="section-label" style="justify-content:center">Custom builds</div>
+      <h2 class="section-title" style="margin-bottom:16px">Need a custom agent<br /><em style="font-style:italic;color:var(--accent)">for your business?</em></h2>
+      <p style="color:var(--text2);margin-bottom:36px">Every agent can be customized for your specific industry, language, and workflows. Book a free discovery call.</p>
+      <a href="contact.html" class="btn btn-primary">📅 Book a free call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="nav-logo" style="margin-bottom:12px"><video autoplay loop muted playsinline width="100" height="34" style="object-fit:contain;display:block;mix-blend-mode:screen">
+  <source src="../assets/logo.mp4" type="video/mp4">
+  NSAI
+</video></div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Based in Gandhinagar, Gujarat 🇮🇳</p>
+      <div class="footer-socials" style="margin-top:18px">
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="https://wa.me/91XXXXXXXXXX" class="social-btn">💬</a>
+        <a href="#" class="social-btn">📸</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">Customer Support AI</a></li><li><a href="agents.html">Sales Lead Gen</a></li><li><a href="agents.html">Legal Analyzer</a></li><li><a href="agents.html">View all 17 →</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">E-Commerce</a></li><li><a href="webdev.html">MSME Websites</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+const deployed = [
+  { icon:'🎯', name:'Sales Lead Gen Agent', cat:'Sales', badge:'🟢 Live Beta', badgeClass:'badge-green badge-pulse', desc:'Auto-identifies, enriches & sequences personalised outreach to your ideal prospects via WhatsApp and Email.', roi:'10× pipeline growth', price:'₹3,999', deployed:true },
+  { icon:'🎧', name:'Customer Support AI', cat:'Operations', badge:'🟢 Live Beta', badgeClass:'badge-green badge-pulse', desc:'Resolve 70%+ tickets autonomously via WhatsApp, Email & Chat with full CRM sync and Hindi/English support.', roi:'Save ₹2L+ per month', price:'₹3,999', deployed:true },
+  { icon:'📄', name:'Doc & Report Automation', cat:'Operations', badge:'🟢 Live Beta', badgeClass:'badge-green badge-pulse', desc:'Auto-generates GST reports, proposals & summaries from raw data — branded, formatted and ready to send.', roi:'Save 20 hrs/week', price:'₹1,499', deployed:true },
+];
+
+const wip = [
+  { icon:'⚖️', name:'Legal Contract Analyzer', cat:'Legal', badge:'🔨 Building Q2', badgeClass:'badge-gold', desc:'Reviews, redlines & risk-scores contracts in seconds. Tracks obligations & deadlines.', roi:'Avoid costly errors', price:'₹4,999' },
+  { icon:'👥', name:'HR & Recruitment Agent', cat:'HR', badge:'🔨 Building Q2', badgeClass:'badge-gold', desc:'Screens CVs, schedules interviews, drafts JDs & tracks hiring pipeline autonomously.', roi:'Hire 3× faster', price:'₹2,999' },
+  { icon:'📊', name:'Data Analysis Agent', cat:'Operations', badge:'🔨 Building Q3', badgeClass:'badge-gold', desc:'Ask in plain Hindi or English — get instant charts, insights and business alerts.', roi:'BI without a data team', price:'₹2,999' },
+  { icon:'💻', name:'Code Gen & Debug Agent', cat:'Tech', badge:'🔨 Building Q3', badgeClass:'badge-gold', desc:'Generates, reviews & auto-fixes code. Integrates with GitHub, Jira and CI/CD pipelines.', roi:'4× faster debugging', price:'₹2,499' },
+  { icon:'🔍', name:'Multi-Doc Comparison', cat:'Legal', badge:'🔨 Building Q3', badgeClass:'badge-gold', desc:'Side-by-side AI comparison of contracts, tenders & policies with risk flags.', roi:'Save 15 hrs/review', price:'₹2,999' },
+  { icon:'🔬', name:'Research & Analysis', cat:'Operations', badge:'🔨 Building Q3', badgeClass:'badge-gold', desc:'Autonomous web + internal research with structured reports, citations & summaries.', roi:'Research 10× faster', price:'₹4,999' },
+  { icon:'🛍️', name:'E-Commerce Personalisation', cat:'Sales', badge:'🔨 Building Q4', badgeClass:'badge-gold', desc:'Real-time product recommendations, dynamic pricing & abandoned-cart recovery.', roi:'+25% conversion', price:'₹4,999' },
+  { icon:'⚙️', name:'Business Process Agent', cat:'Operations', badge:'🔨 Building Q4', badgeClass:'badge-gold', desc:'Orchestrates multi-step workflows across Tally, Zoho & WhatsApp — no code needed.', roi:'Cut ops cost 40%', price:'₹4,999' },
+  { icon:'💬', name:'Document Q&A System', cat:'Operations', badge:'🔨 Building Q4', badgeClass:'badge-gold', desc:'Chat with any PDF, contract or manual and get instant, cited answers instantly.', roi:'Zero search time', price:'₹999' },
+  { icon:'🏥', name:'Healthcare Diagnostic AI', cat:'Operations', badge:'🔨 Planning', badgeClass:'badge-red', desc:'Clinical decision-support surfacing differential diagnoses & drug interactions for clinics.', roi:'Better outcomes', price:'₹9,999' },
+  { icon:'🏢', name:'Enterprise Doc Intelligence', cat:'Operations', badge:'🔨 Planning', badgeClass:'badge-red', desc:'Organisation-wide intelligent document layer with role-based access & audit trail.', roi:'Knowledge at scale', price:'₹15,000' },
+  { icon:'🧠', name:'Custom Fine-Tune Model', cat:'Tech', badge:'🔨 Planning', badgeClass:'badge-red', desc:'Domain-specific LLM trained on your data for superior accuracy in niche tasks.', roi:'Best accuracy', price:'Custom' },
+  { icon:'🕸️', name:'Multi-Agent Platform', cat:'Tech', badge:'🔨 Planning', badgeClass:'badge-red', desc:'Orchestration hub deploying & managing fleets of specialised agents across departments.', roi:'Whole org autopilot', price:'Custom' },
+  { icon:'⌨️', name:'Intelligent CLI Assistant', cat:'Tech', badge:'🔨 Planning', badgeClass:'badge-red', desc:'AI-powered terminal agent that codes, debugs & automates DevOps tasks instantly.', roi:'2× dev productivity', price:'₹1,999' },
+];
+
+const all = [...deployed, ...wip];
+let currentFilter = 'All';
+
+function agentCard(a) {
+  return `<div class="agent-card ${a.deployed ? 'deployed' : 'wip'}" data-cat="${a.cat}">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+      <div class="agent-icon">${a.icon}</div>
+      <span class="badge ${a.badgeClass}">${a.badge}</span>
+    </div>
+    <div class="agent-name">${a.name}</div>
+    <p class="agent-desc">${a.desc}</p>
+    <div class="agent-roi">📈 ${a.roi}</div>
+    <div class="agent-footer">
+      <div class="agent-price">${a.price}<span class="agent-price-sub">${a.price==='Custom'?'':'/mo'}</span></div>
+      <a href="contact.html?agent=${encodeURIComponent(a.name)}" class="btn btn-primary btn-sm">${a.price==='Custom'?'Get quote':'Get started'}</a>
+    </div>
+  </div>`;
+}
+
+function renderGrid(containerId, agents) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const filtered = currentFilter === 'All' ? agents : agents.filter(a => a.cat === currentFilter);
+  el.innerHTML = filtered.length ? filtered.map(agentCard).join('') : '<p style="color:var(--text3);grid-column:1/-1">No agents in this category yet.</p>';
+}
+
+function switchTab(group, tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-deployed').style.display = tab === 'deployed' ? 'grid' : 'none';
+  document.getElementById('tab-wip').style.display = tab === 'wip' ? 'block' : 'none';
+  document.getElementById('tab-all').style.display = tab === 'all' ? 'block' : 'none';
+  const filterBar = document.getElementById('filterBar');
+  filterBar.style.display = tab === 'deployed' ? 'flex' : 'flex';
+}
+
+function filterAgents(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid('tab-deployed', deployed);
+  renderGrid('wip-grid', wip);
+  renderGrid('all-grid', all);
+  // also filter visible cards in wip grid container
+  document.querySelectorAll('.agent-card').forEach(card => {
+    if (cat === 'All' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Initial render
+renderGrid('tab-deployed', deployed);
+renderGrid('wip-grid', wip);
+renderGrid('all-grid', all);
+</script>
+</body>
+</html>

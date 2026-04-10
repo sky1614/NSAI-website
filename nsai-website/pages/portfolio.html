@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio — NSAI</title>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.port-preview { height: 240px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.browser-mock { width: 180px; height: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+.browser-bar { height: 24px; background: rgba(255,255,255,0.08); display: flex; align-items: center; gap: 5px; padding: 0 10px; }
+.browser-dot { width: 7px; height: 7px; border-radius: 50%; }
+.browser-body { flex: 1; padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+.browser-line { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.15); }
+.live-indicator { position: absolute; bottom: 16px; right: 16px; font-family: var(--fm); font-size: 11px; letter-spacing: 0.05em; }
+@media(max-width:768px){ .portfolio-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><video autoplay loop muted playsinline width="120" height="40" style="object-fit:contain;display:block;mix-blend-mode:screen">
+  <source src="../assets/logo.mp4" type="video/mp4">
+  NSAI
+</video></a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a><a href="agents.html">AI Agents</a><a href="webdev.html">Web Dev</a>
+    <a href="portfolio.html" class="active">Portfolio</a><a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Get a quote →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a><a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="portfolio.html" onclick="toggleMobileNav()">Portfolio</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a><a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.07) 0%, transparent 70%)"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label" style="justify-content:center;color:#a78bfa">Our work</div>
+    <h1 class="section-title reveal" style="text-align:center;max-width:600px;margin:0 auto 18px">Real projects. <em style="color:#a78bfa;font-style:italic">Real results.</em></h1>
+    <p class="section-sub reveal reveal-d1" style="text-align:center;margin:0 auto">Two live client websites delivered and running in Gujarat, India. More coming soon.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="portfolio-grid">
+
+      <!-- Arton360 -->
+      <div class="portfolio-card reveal" onclick="window.open('https://arton360.com','_blank')">
+        <div class="port-preview" style="background:linear-gradient(135deg,#1a0533,#2d1060,#0a0a1a)">
+          <div class="browser-mock">
+            <div class="browser-bar"><div class="browser-dot" style="background:#ff5f57"></div><div class="browser-dot" style="background:#ffbd2e"></div><div class="browser-dot" style="background:#28c840"></div></div>
+            <div class="browser-body">
+              <div class="browser-line" style="width:70%;background:rgba(167,139,250,0.5)"></div>
+              <div class="browser-line" style="width:90%"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px">
+                <div style="height:32px;border-radius:4px;background:rgba(167,139,250,0.2)"></div>
+                <div style="height:32px;border-radius:4px;background:rgba(167,139,250,0.15)"></div>
+                <div style="height:32px;border-radius:4px;background:rgba(167,139,250,0.1)"></div>
+                <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.05)"></div>
+              </div>
+            </div>
+          </div>
+          <div class="live-indicator" style="color:rgba(167,139,250,0.9)">LIVE ●</div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">E-Commerce · Print on Demand · WordPress</div>
+          <div class="portfolio-title">Arton360</div>
+          <div class="portfolio-url">arton360.com</div>
+          <p class="portfolio-desc">Custom WordPress Print-on-Demand e-commerce store. Full WooCommerce integration, product customisation engine, and automated order management for a creative products brand based in Gujarat.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag-pill">WordPress</span>
+            <span class="portfolio-tag-pill">WooCommerce</span>
+            <span class="portfolio-tag-pill">Print on Demand</span>
+            <span class="portfolio-tag-pill">Custom Theme</span>
+            <span class="portfolio-tag-pill">Razorpay</span>
+          </div>
+          <a href="https://arton360.com" target="_blank" class="btn btn-outline btn-sm" style="margin-top:18px" onclick="event.stopPropagation()">Visit site →</a>
+        </div>
+      </div>
+
+      <!-- SMS Foods -->
+      <div class="portfolio-card reveal reveal-d1" onclick="window.open('https://smsfoods.co.in','_blank')">
+        <div class="port-preview" style="background:linear-gradient(135deg,#0a1628,#0d2144,#061020)">
+          <div class="browser-mock">
+            <div class="browser-bar"><div class="browser-dot" style="background:#ff5f57"></div><div class="browser-dot" style="background:#ffbd2e"></div><div class="browser-dot" style="background:#28c840"></div></div>
+            <div class="browser-body">
+              <div class="browser-line" style="width:80%;background:rgba(0,229,195,0.4)"></div>
+              <div class="browser-line" style="width:95%"></div>
+              <div style="display:flex;gap:4px;margin-top:4px">
+                <div style="flex:1;height:42px;border-radius:4px;background:rgba(0,229,195,0.1)"></div>
+                <div style="flex:1;height:42px;border-radius:4px;background:rgba(0,229,195,0.07)"></div>
+                <div style="flex:1;height:42px;border-radius:4px;background:rgba(0,229,195,0.05)"></div>
+              </div>
+              <div class="browser-line" style="width:55%;background:rgba(0,229,195,0.3)"></div>
+            </div>
+          </div>
+          <div class="live-indicator" style="color:rgba(0,229,195,0.9)">LIVE ●</div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">B2B Wholesale · MSME · Food Industry</div>
+          <div class="portfolio-title">SMS Foods</div>
+          <div class="portfolio-url">smsfoods.co.in</div>
+          <p class="portfolio-desc">B2B wholesale website for an MSME food business. Features product catalogue with bulk pricing, GST-ready enquiry system, WhatsApp ordering integration and distributor management panel.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag-pill">WordPress</span>
+            <span class="portfolio-tag-pill">B2B Wholesale</span>
+            <span class="portfolio-tag-pill">MSME</span>
+            <span class="portfolio-tag-pill">WhatsApp</span>
+            <span class="portfolio-tag-pill">GST Ready</span>
+          </div>
+          <a href="https://smsfoods.co.in" target="_blank" class="btn btn-outline btn-sm" style="margin-top:18px" onclick="event.stopPropagation()">Visit site →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- More coming -->
+    <div style="text-align:center;margin-top:48px;padding:40px;background:var(--surface);border:1px dashed var(--border2);border-radius:var(--r-xl)" class="reveal">
+      <div style="font-size:32px;margin-bottom:12px">🚀</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px">More projects coming soon</div>
+      <p style="font-size:14px;color:var(--text2);margin-bottom:24px">We're actively taking on new web development clients in Gujarat and across India. Want your project featured here?</p>
+      <a href="contact.html" class="btn btn-primary">Let's build something →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal" style="color:#a78bfa">Process</div>
+    <h2 class="section-title reveal reveal-d1">How we deliver <em style="font-style:italic;color:#a78bfa">in 2 weeks</em></h2>
+    <div class="process-grid" style="margin-top:48px">
+      <div class="process-step reveal"><div class="step-num">01</div><div class="step-title">Discovery call</div><div class="step-desc">30 min call to understand your business, goals, and target customers.</div></div>
+      <div class="process-step reveal reveal-d1"><div class="step-num">02</div><div class="step-title">Design & approval</div><div class="step-desc">We share a design mockup within 3 days. You approve before we build.</div></div>
+      <div class="process-step reveal reveal-d2"><div class="step-num">03</div><div class="step-title">Build & integrate</div><div class="step-desc">Full WordPress build with all integrations — WhatsApp, payments, SEO.</div></div>
+      <div class="process-step reveal reveal-d3"><div class="step-num">04</div><div class="step-title">Launch & handover</div><div class="step-desc">Live in 2 weeks. 30 days post-launch support included. Training provided.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-section reveal" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.07),rgba(79,142,255,0.04))">
+      <h2 class="section-title" style="margin-bottom:16px">Want a site like <em style="font-style:italic;color:#a78bfa">these?</em></h2>
+      <p style="color:var(--text2);margin-bottom:36px">Let's talk. We'll give you an honest quote and timeline — same day.</p>
+      <a href="contact.html?interest=webdev" class="btn" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff">Get a free quote →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="nav-logo" style="margin-bottom:12px"><video autoplay loop muted playsinline width="100" height="34" style="object-fit:contain;display:block;mix-blend-mode:screen">
+  <source src="../assets/logo.mp4" type="video/mp4">
+  NSAI
+</video></div><p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p></div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li><li><a href="agents.html">Live Beta</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
