@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us — NSAI</title>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.founders-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px;
+}
+.founder-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-xl); overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+  cursor: pointer; text-decoration: none; color: inherit; display: block;
+}
+.founder-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+.founder-card-top {
+  padding: 36px 36px 28px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.founder-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--bg2); border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fd); font-size: 24px; flex-shrink: 0;
+}
+.founder-name { font-family: var(--fd); font-size: 22px; margin-bottom: 4px; }
+.founder-role { font-family: var(--fm); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.founder-bio { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.founder-card-bottom {
+  padding: 20px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.founder-meta { display: flex; flex-direction: column; gap: 5px; }
+.founder-meta-item { font-size: 12px; color: var(--text3); display: flex; align-items: center; gap: 6px; }
+.founder-cta {
+  font-family: var(--fm); font-size: 11px; color: var(--text2);
+  letter-spacing: 0.06em; display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.founder-card:hover .founder-cta { color: var(--text); }
+.founder-cta-arrow { transition: transform 0.2s; }
+.founder-card:hover .founder-cta-arrow { transform: translateX(3px); }
+
+@media(max-width:768px){ .founders-grid { grid-template-columns: 1fr; } .founder-card-top { flex-direction: column; gap: 14px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">NSAI</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="agents.html">AI Agents</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="about-us.html" class="active">About Us</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Book a call →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label reveal">About Us</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:520px">The people<br /><em style="font-style:italic;color:var(--text2)">behind NSAI</em></h1>
+    <p class="section-sub reveal reveal-d2">A small, focused team building AI tools and websites for Indian businesses — one project at a time.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Founders</div>
+    <div class="founders-grid">
+
+      <!-- Swapnil -->
+      <a href="portfolio-swapnil.html" class="founder-card reveal">
+        <div class="founder-card-top">
+          <div class="founder-avatar">S</div>
+          <div>
+            <div class="founder-name">Swapnil Utkarsh</div>
+            <div class="founder-role">Co-founder & CEO</div>
+            <p class="founder-bio">Student at IIT Gandhinagar building AI agents for Indian SMEs. Focused on sales automation, WhatsApp-first workflows, and making enterprise AI affordable for every Indian business.</p>
+          </div>
+        </div>
+        <div class="founder-card-bottom">
+          <div class="founder-meta">
+            <div class="founder-meta-item">🎓 IIT Gandhinagar</div>
+            <div class="founder-meta-item">📍 Gandhinagar, Gujarat</div>
+            <div class="founder-meta-item">📧 ceo@nsai.in</div>
+          </div>
+          <div class="founder-cta">
+            View portfolio <span class="founder-cta-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Varuni -->
+      <a href="portfolio-varuni.html" class="founder-card reveal reveal-d1">
+        <div class="founder-card-top">
+          <div class="founder-avatar">V</div>
+          <div>
+            <div class="founder-name">Varuni Singh</div>
+            <div class="founder-role">Co-founder</div>
+            <p class="founder-bio">Co-founder at NSAI, working on product, design, and go-to-market for Indian businesses. Passionate about building tools that solve real problems for India's 63 million SMEs.</p>
+          </div>
+        </div>
+        <div class="founder-card-bottom">
+          <div class="founder-meta">
+            <div class="founder-meta-item">📍 India</div>
+            <div class="founder-meta-item">🔨 Building NSAI</div>
+          </div>
+          <div class="founder-cta">
+            View portfolio <span class="founder-cta-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-section reveal">
+      <h2 class="section-title" style="margin-bottom:14px">Want to work<br /><em style="font-style:italic;color:var(--text2)">with us?</em></h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:360px;margin-left:auto;margin-right:auto">Book a free call. We'll understand your business and recommend the right solution.</p>
+      <a href="contact.html" class="btn btn-primary">Book a free call →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li><li><a href="agents.html">Roadmap</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">About Us</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

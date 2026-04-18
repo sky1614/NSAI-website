@@ -6,25 +6,20 @@
 <title>Pricing — NSAI</title>
 <link rel="stylesheet" href="../css/style.css" />
 <style>
-.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
-.compare-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
-.compare-table th { padding: 14px 18px; text-align: left; font-size: 12px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
-.compare-table td { padding: 14px 18px; font-size: 13px; border-bottom: 1px solid var(--border); color: var(--text2); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.compare-table th { padding: 12px 16px; text-align: left; font-size: 11px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+.compare-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--border); color: var(--text2); }
 .compare-table tr:hover td { background: var(--surface); }
-.check { color: var(--accent); font-size: 16px; }
-.cross { color: var(--text3); }
 @media(max-width:900px){ .pricing-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a href="../index.html" class="nav-logo"><video autoplay loop muted playsinline width="120" height="40" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></a>
+  <a href="../index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
     <a href="../index.html">Home</a><a href="agents.html">AI Agents</a><a href="webdev.html">Web Dev</a>
-    <a href="portfolio.html">Portfolio</a><a href="pricing.html" class="active">Pricing</a>
+    <a href="about-us.html">About Us</a><a href="pricing.html" class="active">Pricing</a>
     <a href="about.html">About</a><a href="contact.html">Contact</a>
   </div>
   <div class="nav-right">
@@ -35,17 +30,16 @@
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="../index.html" onclick="toggleMobileNav()">Home</a><a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
-  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="portfolio.html" onclick="toggleMobileNav()">Portfolio</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
   <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a><a href="about.html" onclick="toggleMobileNav()">About</a>
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
 <section class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="section-label" style="justify-content:center">Pricing</div>
-    <h1 class="section-title reveal" style="text-align:center;max-width:600px;margin:0 auto 18px">Clear pricing. <em style="color:var(--accent);font-style:italic">No surprises.</em></h1>
-    <p class="section-sub reveal reveal-d1" style="text-align:center;margin:0 auto">No hidden fees. No lock-in. All plans include WhatsApp support and a free onboarding call.</p>
+  <div class="container">
+    <div class="section-label reveal">Pricing</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:500px">Simple plans.<br /><em style="font-style:italic;color:var(--text2)">No surprises.</em></h1>
+    <p class="section-sub reveal reveal-d2">No hidden fees. No lock-in. All plans include WhatsApp support and a free onboarding call.</p>
   </div>
 </section>
 
@@ -55,7 +49,6 @@
     <div class="pricing-grid">
       <div class="pricing-card reveal">
         <div class="pricing-tier">Starter</div>
-        <div class="pricing-price"><sup>₹</sup>4,999<span class="per">/mo</span></div>
         <p class="pricing-desc">For small businesses starting their AI automation journey.</p>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
@@ -66,13 +59,12 @@
           <li><span class="check">✓</span> 1 onboarding session</li>
           <li><span class="check">✓</span> 5×8 WhatsApp support</li>
           <li><span class="check">✓</span> Hindi/English language</li>
-          <li><span class="cross" style="color:var(--text3)">✗</span> Custom integrations</li>
+          <li><span class="cross">✗</span> Custom integrations</li>
         </ul>
         <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center">Get started</a>
       </div>
       <div class="pricing-card featured reveal reveal-d1">
-        <div class="pricing-tier" style="margin-top:16px">Growth</div>
-        <div class="pricing-price"><sup>₹</sup>14,999<span class="per">/mo</span></div>
+        <div class="pricing-tier" style="margin-top:14px">Growth</div>
         <p class="pricing-desc">For scaling businesses that need serious automation power.</p>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
@@ -89,7 +81,6 @@
       </div>
       <div class="pricing-card reveal reveal-d2">
         <div class="pricing-tier">Enterprise</div>
-        <div class="pricing-price" style="font-size:34px">Custom</div>
         <p class="pricing-desc">For large organisations needing full platform deployment.</p>
         <div class="pricing-divider"></div>
         <ul class="pricing-features">
@@ -106,40 +97,36 @@
       </div>
     </div>
 
-    <!-- Web Dev pricing -->
-    <div style="margin-top:80px">
+    <div style="margin-top:72px">
       <div class="section-label reveal">Web Development</div>
-      <h2 class="section-title reveal reveal-d1">Two scenarios. <em style="font-style:italic;color:var(--accent)">Two models.</em></h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px">
-        <div class="card card-accent reveal">
-          <div class="badge badge-green" style="margin-bottom:14px">No online presence</div>
-          <h3 style="font-size:20px;margin-bottom:12px">Get your business online</h3>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;font-size:13px;color:var(--text2)">
-            <li>→ Local service businesses (salons, clinics)</li>
-            <li>→ Restaurants & cafes</li>
-            <li>→ MSME manufacturers & traders</li>
-            <li>→ Coaches & consultants</li>
-            <li>→ Real estate agents</li>
+      <h2 class="section-title reveal reveal-d1">Two scenarios.<br /><em style="font-style:italic;color:var(--text2)">Two models.</em></h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px">
+        <div class="card reveal">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px">No online presence</div>
+          <h3 style="font-size:18px;margin-bottom:12px">Get your business online</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text2)">
+            <li>— Local service businesses (salons, clinics)</li>
+            <li>— Restaurants & cafes</li>
+            <li>— MSME manufacturers & traders</li>
+            <li>— Coaches & consultants</li>
+            <li>— Real estate agents</li>
           </ul>
-          <div style="font-family:var(--fm);font-size:24px;color:var(--accent);padding:14px 18px;background:var(--accent-dim);border:1px solid rgba(0,229,195,0.2);border-radius:10px">₹15K–₹35K <span style="font-size:13px;color:var(--text3)">one-time</span></div>
         </div>
-        <div class="card reveal reveal-d1" style="border-color:rgba(124,58,237,0.2);background:linear-gradient(135deg,rgba(124,58,237,0.05),var(--surface))">
-          <div class="badge badge-blue" style="margin-bottom:14px;background:rgba(124,58,237,0.15);color:#a78bfa;border-color:rgba(124,58,237,0.3)">Has online presence</div>
-          <h3 style="font-size:20px;margin-bottom:12px">Fix what's broken</h3>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;font-size:13px;color:var(--text2)">
-            <li>→ Zero enquiries from website</li>
-            <li>→ Broken or slow website</li>
-            <li>→ Dead social media presence</li>
-            <li>→ Running ads with zero results</li>
-            <li>→ No online store despite having products</li>
+        <div class="card reveal reveal-d1">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px">Has online presence</div>
+          <h3 style="font-size:18px;margin-bottom:12px">Fix what's broken</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text2)">
+            <li>— Zero enquiries from website</li>
+            <li>— Broken or slow website</li>
+            <li>— Dead social media presence</li>
+            <li>— Running ads with zero results</li>
+            <li>— No online store despite having products</li>
           </ul>
-          <div style="font-family:var(--fm);font-size:24px;color:#a78bfa;padding:14px 18px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);border-radius:10px">₹4K–₹12K <span style="font-size:13px;color:var(--text3)">per month</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Compare table -->
-    <div style="margin-top:80px">
+    <div style="margin-top:72px">
       <div class="section-label reveal">Compare plans</div>
       <div style="overflow-x:auto">
         <table class="compare-table reveal reveal-d1">
@@ -155,7 +142,7 @@
             <tr><td>Regional languages</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
             <tr><td>Tally integration</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
             <tr><td>Zoho / CRM</td><td class="cross">—</td><td class="check">✓</td><td class="check">✓</td></tr>
-            <tr><td>Custom integrations</td><td class="cross">—</td><td>Basic</td><td class="check">Full</td></tr>
+            <tr><td>Custom integrations</td><td class="cross">—</td><td>Basic</td><td>Full</td></tr>
             <tr><td>Analytics dashboard</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
             <tr><td>Support</td><td>5×8 WhatsApp</td><td>24/7 Priority</td><td>Dedicated manager</td></tr>
             <tr><td>On-premise deployment</td><td class="cross">—</td><td class="cross">—</td><td class="check">✓</td></tr>
@@ -168,25 +155,25 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="cta-section reveal">
-      <div class="section-label" style="justify-content:center">Not sure which plan?</div>
-      <h2 class="section-title" style="margin-bottom:16px">Book a free call — <em style="font-style:italic;color:var(--accent)">we'll recommend</em></h2>
-      <p style="color:var(--text2);margin-bottom:36px">30 minutes. No sales pitch. Just honest advice on what will work for your business.</p>
-      <a href="contact.html" class="btn btn-primary">📅 Book free call →</a>
+      <div class="section-label" style="display:flex;justify-content:center">Not sure which plan?</div>
+      <h2 class="section-title" style="margin-bottom:14px">Book a free call —<br /><em style="font-style:italic;color:var(--text2)">we'll recommend</em></h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:380px;margin-left:auto;margin-right:auto">30 minutes. No sales pitch. Just honest advice on what will work for your business.</p>
+      <a href="contact.html" class="btn btn-primary">Book free call →</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-grid">
-    <div><div class="nav-logo" style="margin-bottom:12px"><video autoplay loop muted playsinline width="100" height="34" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></div><p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p></div>
-    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li><li><a href="agents.html">Deployed</a></li><li><a href="agents.html">Coming Soon</a></li></ul></div>
-    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li><li><a href="agents.html">Live Beta</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="about-us.html">About Us</a></li></ul></div>
     <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>

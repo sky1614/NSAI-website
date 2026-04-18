@@ -3,34 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About — NSAI</title>
+<title>Contact — NSAI</title>
 <link rel="stylesheet" href="../css/style.css" />
 <style>
-.about-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.founder-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 40px; }
-.founder-avatar {
-  width: 88px; height: 88px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 36px; font-weight: 900; color: #000; margin-bottom: 20px;
-}
-.value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 26px; }
-.value-icon { font-size: 28px; margin-bottom: 14px; }
-.value-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-.value-desc { font-size: 13px; color: var(--text2); line-height: 1.65; }
-@media(max-width:900px){ .about-hero-grid{grid-template-columns:1fr} }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width:900px){ .contact-grid{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} .contact-info-card{position:static} .meeting-slots{grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
 <nav class="nav">
-  <a href="../index.html" class="nav-logo"><video autoplay loop muted playsinline width="120" height="40" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></a>
+  <a href="../index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
     <a href="../index.html">Home</a><a href="agents.html">AI Agents</a><a href="webdev.html">Web Dev</a>
-    <a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a>
-    <a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+    <a href="about-us.html">About Us</a><a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a><a href="contact.html" class="active">Contact</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
@@ -40,45 +27,109 @@
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="../index.html" onclick="toggleMobileNav()">Home</a><a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
-  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="portfolio.html" onclick="toggleMobileNav()">Portfolio</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
   <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a><a href="about.html" onclick="toggleMobileNav()">About</a>
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
 <section class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="section-label" style="justify-content:center">About NSAI</div>
-    <h1 class="section-title reveal" style="text-align:center;max-width:700px;margin:0 auto 18px">Built by a student.<br /><em style="color:var(--accent);font-style:italic">Built for India.</em></h1>
-    <p class="section-sub reveal reveal-d1" style="text-align:center;margin:0 auto">NSAI was born from a simple observation — Indian SMEs are being left behind in the AI revolution because existing tools are too expensive, too complex, and not built for Indian workflows.</p>
+  <div class="container">
+    <div class="section-label reveal">Get in touch</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:480px">Let's talk about<br /><em style="font-style:italic;color:var(--text2)">your business</em></h1>
+    <p class="section-sub reveal reveal-d2">Book a free 30-minute discovery call. We'll understand your needs and recommend the right solution — no sales pressure.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="about-hero-grid">
-      <div class="reveal">
-        <div class="section-label">Our story</div>
-        <h2 class="section-title">Why we built <em style="font-style:italic;color:var(--accent)">NSAI</em></h2>
-        <p style="color:var(--text2);line-height:1.8;margin-bottom:20px;font-size:15px">India has 63 million SMEs contributing over ₹330 lakh crore to the GDP. Yet most of them still run sales on WhatsApp manually, support customers through phone calls, and generate reports by hand in Excel.</p>
-        <p style="color:var(--text2);line-height:1.8;margin-bottom:20px;font-size:15px">Global AI tools like Salesforce, Zendesk and HubSpot cost lakhs per year and require dedicated IT teams. They don't speak Hindi. They don't integrate with Tally. They don't understand the Indian SME context.</p>
-        <p style="color:var(--text2);line-height:1.8;font-size:15px">NSAI exists to fix that. We're building AI agents that are affordable, WhatsApp-first, multilingual, and deeply integrated with Indian business tools — starting with 3 agents in beta and growing to the full 17-agent platform.</p>
-      </div>
-      <div class="founder-card reveal reveal-d2">
-        <div class="founder-avatar">S</div>
-        <div style="font-family:var(--fd);font-size:26px;margin-bottom:4px">Swapnil Kumar Utkarsh</div>
-        <div style="font-size:13px;color:var(--accent);font-family:var(--fm);margin-bottom:16px">Founder & CEO</div>
-        <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:20px">"I'm a student at IIT Gandhinagar building AI agents that actually work for Indian businesses — not demos, but real automations that save time and make money."</p>
-        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text2)">
-          <div>🎓 IIT Gandhinagar</div>
-          <div>📍 Gandhinagar, Gujarat, India</div>
-          <div>🔨 Building NSAI in public</div>
-          <div>📧 ceo@nsai.in</div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-card reveal">
+          <div style="font-family:var(--fd);font-size:20px;margin-bottom:4px">Swapnil Kumar Utkarsh</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:24px;font-family:var(--fm)">Founder & CEO, NSAI · Gandhinagar, Gujarat 🇮🇳</div>
+
+          <div class="contact-method">
+            <div class="contact-method-icon">📧</div>
+            <div><div class="contact-method-label">Email</div><a href="mailto:ceo@nsai.in" class="contact-method-val">ceo@nsai.in</a><div class="contact-method-sub">Replies within 2 hours</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">💬</div>
+            <div><div class="contact-method-label">WhatsApp</div><a href="https://wa.me/91XXXXXXXXXX" class="contact-method-val">+91 XXXXXXXXXX</a><div class="contact-method-sub">Mon–Sat 9am–8pm IST</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">📍</div>
+            <div><div class="contact-method-label">Location</div><div class="contact-method-val">Gandhinagar, Gujarat</div><div class="contact-method-sub">IST (UTC+5:30)</div></div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method-icon">🎓</div>
+            <div><div class="contact-method-label">Institution</div><div class="contact-method-val">IIT Gandhinagar</div><div class="contact-method-sub">Student founder</div></div>
+          </div>
+
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px">
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em">What to expect</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--text2)">
+              <li>— 30-minute free discovery call</li>
+              <li>— No sales pressure, just honest advice</li>
+              <li>— Custom recommendation for your business</li>
+              <li>— Pricing & timeline in writing same day</li>
+            </ul>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;margin-top:20px">
-          <a href="https://twitter.com" class="social-btn" target="_blank">𝕏</a>
-          <a href="https://linkedin.com" class="social-btn" target="_blank">in</a>
-          <a href="https://wa.me/91XXXXXXXXXX" class="social-btn" target="_blank">💬</a>
+      </div>
+
+      <div>
+        <div class="form-card reveal reveal-d1">
+          <div style="font-family:var(--fd);font-size:24px;margin-bottom:4px">Book a free call</div>
+          <div style="font-size:13px;color:var(--text2);margin-bottom:24px">Pick a slot via Google Calendar or send a message below.</div>
+
+          <a href="https://calendar.app.google/XXXXXXXXXX" target="_blank" class="gcal-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
+            Book 30-min call via Google Calendar
+          </a>
+
+          <div class="divider">or send a message</div>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group"><label>Your name *</label><input type="text" placeholder="Rajesh Patel" required /></div>
+              <div class="form-group"><label>Company / Business</label><input type="text" placeholder="Acme Pvt Ltd" /></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Email *</label><input type="email" placeholder="raj@acme.in" required /></div>
+              <div class="form-group"><label>WhatsApp number</label><input type="tel" placeholder="+91 9876543210" /></div>
+            </div>
+            <div class="form-group">
+              <label>What are you interested in? *</label>
+              <select required>
+                <option value="">— Select —</option>
+                <option>AI Agents — Sales Lead Gen</option>
+                <option>AI Agents — Customer Support</option>
+                <option>AI Agents — Doc & Report Automation</option>
+                <option>AI Agents — Custom build</option>
+                <option>Web Development — New website</option>
+                <option>Web Development — Fix existing site</option>
+                <option>Both AI Agents + Web Dev</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell us about your business</label>
+              <textarea placeholder="We are a D2C brand in Ahmedabad selling ethnic wear..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Preferred call time (IST)</label>
+              <div class="meeting-slots">
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Mon 10am</button>
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Mon 3pm</button>
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Tue 11am</button>
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Wed 10am</button>
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Thu 4pm</button>
+                <button type="button" class="slot-btn" onclick="selectSlot(this)">Sat 11am</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Send message →</button>
+            <p style="font-family:var(--fm);font-size:10px;color:var(--text3);text-align:center;margin-top:12px">Reply within 2 hours · No spam ever</p>
+          </form>
         </div>
       </div>
     </div>
@@ -86,57 +137,29 @@
 </section>
 
 <section class="section section-alt">
-  <div class="container">
-    <div class="section-label reveal">Our values</div>
-    <h2 class="section-title reveal reveal-d1">What we stand <em style="font-style:italic;color:var(--accent)">for</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px">
-      <div class="value-card reveal"><div class="value-icon">🇮🇳</div><div class="value-title">India first</div><div class="value-desc">Built for Indian workflows, Indian languages, Indian tools. Tally, Zoho, WhatsApp, IndiaMart — not an afterthought, but the foundation.</div></div>
-      <div class="value-card reveal reveal-d1"><div class="value-icon">💸</div><div class="value-title">Affordable by design</div><div class="value-desc">Enterprise AI shouldn't cost enterprise budgets. Our pricing is built for SMEs — from ₹999/mo, not ₹1L/mo.</div></div>
-      <div class="value-card reveal reveal-d2"><div class="value-icon">⚡</div><div class="value-title">Speed over perfection</div><div class="value-desc">We ship, get feedback, and improve. 3 agents live in beta today. 17 in production by end of year. No waiting for perfect.</div></div>
-      <div class="value-card reveal"><div class="value-icon">🤝</div><div class="value-title">Honest advice</div><div class="value-desc">We'll tell you if an AI agent won't help your business. We'd rather lose a sale than set up a client for failure.</div></div>
-      <div class="value-card reveal reveal-d1"><div class="value-icon">🔒</div><div class="value-title">Data sovereignty</div><div class="value-desc">Your data stays in India. DPDP compliant. On-premise options for enterprises. We never sell data to third parties.</div></div>
-      <div class="value-card reveal reveal-d2"><div class="value-icon">🏗️</div><div class="value-title">Building in public</div><div class="value-desc">Following our journey on Twitter and Discord. Every agent we build, every client we sign, every lesson we learn — shared openly.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-label reveal">Milestones</div>
-    <h2 class="section-title reveal reveal-d1">Our <em style="font-style:italic;color:var(--accent)">journey</em></h2>
-    <div style="margin-top:48px;display:flex;flex-direction:column;gap:0">
-      <div style="display:flex;gap:24px;padding-bottom:36px;border-left:1px solid var(--border);margin-left:16px;padding-left:36px;position:relative" class="reveal">
-        <div style="position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)"></div>
-        <div><div style="font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:4px">Q1 2026</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">NSAI founded</div><div style="font-size:13px;color:var(--text2)">Started building the first 3 AI agents — Sales Lead Gen, Customer Support, and Doc & Report Automation.</div></div>
+  <div class="container" style="max-width:640px">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="section-title reveal reveal-d1">Common <em style="font-style:italic;color:var(--text2)">questions</em></h2>
+    <div style="margin-top:32px" id="faqList">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">How long does it take to deploy an AI agent? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Most agents go live within 24 hours of onboarding. Complex custom integrations may take 48–72 hours.</div>
       </div>
-      <div style="display:flex;gap:24px;padding-bottom:36px;border-left:1px solid var(--border);margin-left:16px;padding-left:36px;position:relative" class="reveal">
-        <div style="position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)"></div>
-        <div><div style="font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:4px">Mar 2026</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">First 2 client websites live</div><div style="font-size:13px;color:var(--text2)">arton360.com and smsfoods.co.in — both live and running in Gujarat.</div></div>
+      <div class="faq-item reveal reveal-d1">
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need technical knowledge? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Zero technical knowledge required. We handle all setup, integration and configuration. You just use the dashboard and WhatsApp like normal.</div>
       </div>
-      <div style="display:flex;gap:24px;padding-bottom:36px;border-left:1px solid var(--border);margin-left:16px;padding-left:36px;position:relative" class="reveal">
-        <div style="position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid var(--bg)"></div>
-        <div><div style="font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:4px">Mar 17, 2026</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Sales Lead Gen Agent — Beta launch</div><div style="font-size:13px;color:var(--text2)">First agentic AI live in beta. Free access for first 50 users. Customization available for businesses.</div></div>
+      <div class="faq-item reveal reveal-d2">
+        <div class="faq-q" onclick="toggleFaq(this)">Can the agents speak Hindi and other Indian languages? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Yes — our agents support Hindi, Gujarati, Tamil, Telugu, Marathi and English. We configure the primary language based on your customers.</div>
       </div>
-      <div style="display:flex;gap:24px;padding-bottom:36px;border-left:1px solid var(--border2);margin-left:16px;padding-left:36px;position:relative" class="reveal">
-        <div style="position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:var(--bg3);border:2px solid var(--border2)"></div>
-        <div><div style="font-family:var(--fm);font-size:11px;color:var(--text3);margin-bottom:4px">Q2 2026 — Upcoming</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Customer Support + Doc Agent launch</div><div style="font-size:13px;color:var(--text2)">All 3 beta agents live and connected as a multi-agent platform. First paying customers.</div></div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the minimum commitment? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Month-to-month. No annual lock-in for the Starter plan. Growth plan clients get better rates on 3-month or 6-month commitments.</div>
       </div>
-      <div style="display:flex;gap:24px;padding-bottom:0;margin-left:16px;padding-left:36px;position:relative" class="reveal">
-        <div style="position:absolute;left:-9px;top:0;width:18px;height:18px;border-radius:50%;background:var(--bg3);border:2px dashed var(--border2)"></div>
-        <div><div style="font-family:var(--fm);font-size:11px;color:var(--text3);margin-bottom:4px">End 2026 — Target</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">Full 17-agent platform</div><div style="font-size:13px;color:var(--text2)">All 17 agents live, multi-agent orchestration, enterprise onboarding, ₹1.5M ARR target.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="cta-section reveal">
-      <h2 class="section-title" style="margin-bottom:16px">Want to follow the <em style="font-style:italic;color:var(--accent)">journey?</em></h2>
-      <p style="color:var(--text2);margin-bottom:36px">Building in public on Twitter and Discord. Join the community or just book a call.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <a href="contact.html" class="btn btn-primary">📅 Book a free call</a>
-        <a href="https://twitter.com" target="_blank" class="btn btn-outline">Follow on 𝕏</a>
+      <div class="faq-item reveal reveal-d1">
+        <div class="faq-q" onclick="toggleFaq(this)">Is our data secure? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">All data is processed and stored in compliance with India's DPDP Act. We never share data with third parties. Enterprise clients get on-premise deployment options.</div>
       </div>
     </div>
   </div>
@@ -144,16 +167,34 @@
 
 <footer>
   <div class="footer-grid">
-    <div><div class="nav-logo" style="margin-bottom:12px"><video autoplay loop muted playsinline width="100" height="34" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></div><p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p></div>
-    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li><li><a href="agents.html">Live Beta</a></li><li><a href="agents.html">Coming Soon</a></li></ul></div>
-    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="about-us.html">About Us</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
 </footer>
+
 <script src="../js/main.js"></script>
+<script>
+function selectSlot(btn) {
+  document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function toggleFaq(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+const params = new URLSearchParams(window.location.search);
+const agent = params.get('agent');
+if (agent) {
+  const sel = document.querySelector('select');
+  if (sel) for (let opt of sel.options) {
+    if (opt.text.toLowerCase().includes(agent.toLowerCase().split(' ')[0])) { opt.selected = true; break; }
+  }
+}
+</script>
 </body>
 </html>

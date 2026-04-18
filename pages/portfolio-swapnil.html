@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swapnil Utkarsh — Portfolio</title>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.profile-header {
+  display: flex; align-items: flex-start; gap: 28px;
+  padding-bottom: 40px; border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+.profile-avatar {
+  width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;
+  background: var(--surface); border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fd); font-size: 30px;
+}
+.profile-name { font-family: var(--fd); font-size: 32px; margin-bottom: 4px; }
+.profile-role { font-family: var(--fm); font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.profile-bio { font-size: 14px; color: var(--text2); line-height: 1.7; max-width: 500px; margin-bottom: 16px; }
+.profile-links { display: flex; gap: 8px; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 6px; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.timeline-item {
+  position: relative; padding-bottom: 48px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute; left: -32px; top: 4px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--text); border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--border2);
+}
+.timeline-dot.upcoming {
+  background: var(--bg2); border-color: var(--border2);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.timeline-date {
+  font-family: var(--fm); font-size: 10px; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.timeline-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 24px;
+  transition: border-color 0.2s;
+}
+.timeline-card:hover { border-color: var(--border2); }
+.timeline-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.timeline-title { font-size: 16px; font-weight: 600; }
+.timeline-desc { font-size: 13px; color: var(--text2); line-height: 1.65; margin-bottom: 14px; }
+.timeline-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.timeline-tag {
+  font-family: var(--fm); font-size: 10px; padding: 2px 8px;
+  border-radius: 99px; border: 1px solid var(--border); color: var(--text3);
+}
+.timeline-links { display: flex; gap: 8px; margin-top: 14px; }
+
+/* Empty state */
+.empty-slot {
+  background: transparent; border: 1px dashed var(--border);
+  border-radius: var(--r-lg); padding: 24px;
+  text-align: center; color: var(--text3); font-size: 13px;
+  font-family: var(--fm);
+}
+
+@media(max-width:600px){ .profile-header { flex-direction: column; gap: 16px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">NSAI</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="agents.html">AI Agents</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="about-us.html" class="active">About Us</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Book a call →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <a href="about-us.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11px;color:var(--text3);margin-bottom:20px;letter-spacing:0.06em;transition:color 0.2s" class="reveal">
+      ← About Us
+    </a>
+    <div class="profile-header reveal">
+      <div class="profile-avatar">S</div>
+      <div>
+        <div class="profile-name">Swapnil Utkarsh</div>
+        <div class="profile-role">Co-founder & CEO, NSAI</div>
+        <p class="profile-bio">Student at IIT Gandhinagar. Building AI agents for Indian SMEs — WhatsApp-first, multilingual, and affordable. Focused on sales automation and making enterprise AI accessible to every Indian business.</p>
+        <div class="profile-links">
+          <a href="https://twitter.com" target="_blank" class="social-btn">𝕏</a>
+          <a href="https://linkedin.com" target="_blank" class="social-btn">in</a>
+          <a href="mailto:ceo@nsai.in" class="social-btn">✉</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:720px">
+    <div class="section-label reveal">Timeline</div>
+    <h2 class="section-title reveal reveal-d1" style="margin-bottom:48px">Projects & <em style="font-style:italic;color:var(--text2)">work</em></h2>
+
+    <div class="timeline">
+
+      <!-- PROJECT: Sales Lead Gen Agent -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Mar 2026 · Live</div>
+        <div class="timeline-card">
+          <div class="timeline-card-header">
+            <div class="timeline-title">Sales Lead Gen Agent</div>
+            <span class="badge badge-green badge-pulse">Live</span>
+          </div>
+          <p class="timeline-desc">AI agent that auto-identifies, enriches and sequences personalised outreach to ideal prospects via WhatsApp and Email. Live in beta — free for first 50 users.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">AI Agent</span>
+            <span class="timeline-tag">WhatsApp</span>
+            <span class="timeline-tag">Sales Automation</span>
+          </div>
+          <div class="timeline-links">
+            <a href="contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT: Arton360 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Mar 2026 · Live</div>
+        <div class="timeline-card">
+          <div class="timeline-card-header">
+            <div class="timeline-title">Arton360</div>
+            <span class="badge badge-green">Live</span>
+          </div>
+          <p class="timeline-desc">Custom WordPress Print-on-Demand e-commerce store with WooCommerce integration, product customisation engine and automated order management for a creative products brand in Gujarat.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">WordPress</span>
+            <span class="timeline-tag">WooCommerce</span>
+            <span class="timeline-tag">Print on Demand</span>
+            <span class="timeline-tag">Razorpay</span>
+          </div>
+          <div class="timeline-links">
+            <a href="https://arton360.com" target="_blank" class="btn btn-outline btn-sm">Visit site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT: SMS Foods -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Mar 2026 · Live</div>
+        <div class="timeline-card">
+          <div class="timeline-card-header">
+            <div class="timeline-title">SMS Foods</div>
+            <span class="badge badge-green">Live</span>
+          </div>
+          <p class="timeline-desc">B2B wholesale website for an MSME food business. Product catalogue with bulk pricing, GST-ready enquiry system, WhatsApp ordering integration and distributor management panel.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">WordPress</span>
+            <span class="timeline-tag">B2B Wholesale</span>
+            <span class="timeline-tag">MSME</span>
+            <span class="timeline-tag">WhatsApp</span>
+          </div>
+          <div class="timeline-links">
+            <a href="https://smsfoods.co.in" target="_blank" class="btn btn-outline btn-sm">Visit site →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER: more coming -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot upcoming"></div>
+        <div class="timeline-date">More coming soon</div>
+        <div class="empty-slot">Projects will appear here as they ship</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">About Us</a></li><li><a href="contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
