@@ -67,8 +67,68 @@
 .b-line { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.09); }
 @media(max-width:900px){ .project-grid{grid-template-columns:1fr 1fr} }
 @media(max-width:600px){ .project-grid{grid-template-columns:1fr} .services-grid{grid-template-columns:1fr} .hero{padding:calc(var(--nav-h)+48px) 20px 60px;} }
+/* Demo modal */
+.demo-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.demo-modal-overlay.open { display: flex; }
+.demo-modal {
+  background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px;
+  overflow: hidden; width: 100%; max-width: 820px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6); animation: modalIn 0.25s ease both;
+}
+@keyframes modalIn { from{opacity:0;transform:scale(0.96)} to{opacity:1;transform:scale(1)} }
+.demo-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+}
+.demo-modal-title { font-size: 14px; font-weight: 600; }
+.demo-modal-close {
+  width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--border);
+  background: transparent; cursor: pointer; color: var(--text2); font-size: 16px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.demo-modal-close:hover { border-color: var(--border2); color: var(--text); }
+.demo-modal-screen { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
+.demo-modal-screen video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.demo-placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px;
+  background: linear-gradient(135deg, #080d14, #0d1a28); color: var(--text3);
+}
+.demo-modal-footer {
+  padding: 14px 20px; border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px; color: var(--text3); font-family: var(--fm); flex-wrap: wrap; gap: 10px;
+}
 </style>
 </head>
+
+<!-- Demo Video Modal -->
+<div class="demo-modal-overlay" id="demoModal" onclick="closeDemoModal(event)">
+  <div class="demo-modal">
+    <div class="demo-modal-header">
+      <div class="demo-modal-title">🎯 Sales Lead Gen Agent — Demo</div>
+      <button class="demo-modal-close" onclick="closeDemo()">✕</button>
+    </div>
+    <div class="demo-modal-screen">
+      <video id="demoVideo" controls preload="none" style="width:100%;height:100%;object-fit:contain;background:#000">
+        <source src="assets/demo-sales-leadgen.mp4" type="video/mp4">
+      </video>
+      <div class="demo-placeholder" id="demoPlaceholder">
+        <div style="font-size:48px;opacity:0.4">▶</div>
+        <div style="font-family:var(--fm);font-size:12px;letter-spacing:0.06em;text-align:center;line-height:1.8">Demo video coming soon<br />Place your video at assets/demo-sales-leadgen.mp4</div>
+      </div>
+    </div>
+    <div class="demo-modal-footer">
+      <span>Sales Lead Gen Agent · Live Beta · Free for first 50 users</span>
+      <a href="pages/contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
+    </div>
+  </div>
+</div>
+
 <body>
 
 <nav class="nav">
@@ -140,7 +200,10 @@
             <div class="project-tag">AI Agent</div>
             <div class="project-name">Sales Lead Gen Agent</div>
             <p class="project-desc">Auto-identifies, enriches & sequences personalised outreach to ideal prospects via WhatsApp and Email. Free for first 50 users.</p>
-            <a href="pages/contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a href="pages/contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
+              <button onclick="openDemo()" class="btn btn-outline btn-sm" style="display:inline-flex;align-items:center;gap:6px">▶ Watch demo</button>
+            </div>
           </div>
         </div>
 
@@ -263,7 +326,7 @@
       <p style="color:var(--text2);margin-bottom:32px;font-size:15px;max-width:400px;margin-left:auto;margin-right:auto">AI agents, a new website, or both. Response within 2 hours on WhatsApp.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="pages/contact.html" class="btn btn-primary">Book a free call</a>
-        <a href="mailto:ceo@nsai.in" class="btn btn-outline">ceo@nsai.in</a>
+        <a href="mailto:info@nsai.in" class="btn btn-outline">info@nsai.in</a>
       </div>
     </div>
   </div>
@@ -277,12 +340,12 @@
       <div style="display:flex;gap:6px;margin-top:16px">
         <a href="#" class="social-btn">𝕏</a>
         <a href="#" class="social-btn">in</a>
-        <a href="https://wa.me/91XXXXXXXXXX" class="social-btn">💬</a>
+        <a href="https://wa.me/919005988730" class="social-btn">💬</a>
       </div>
     </div>
     <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="pages/agents.html">All Agents</a></li><li><a href="pages/agents.html">Roadmap</a></li></ul></div>
     <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="pages/webdev.html">Services</a></li><li><a href="pages/about-us.html">About Us</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="pages/about.html">About</a></li><li><a href="pages/pricing.html">Pricing</a></li><li><a href="pages/contact.html">Contact</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="pages/about.html">About</a></li><li><a href="pages/pricing.html">Pricing</a></li><li><a href="pages/contact.html">Contact</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
 </footer>
@@ -295,6 +358,29 @@ function switchWork(tab, btn) {
   btn.classList.add('active');
   document.getElementById('work-' + tab).classList.add('active');
 }
+function openDemo() {
+  const modal = document.getElementById('demoModal');
+  const video = document.getElementById('demoVideo');
+  const placeholder = document.getElementById('demoPlaceholder');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  fetch('assets/demo-sales-leadgen.mp4', { method: 'HEAD' })
+    .then(r => {
+      if (r.ok) { placeholder.style.display = 'none'; video.style.display = 'block'; }
+      else { video.style.display = 'none'; placeholder.style.display = 'flex'; }
+    })
+    .catch(() => { video.style.display = 'none'; placeholder.style.display = 'flex'; });
+}
+function closeDemo() {
+  document.getElementById('demoModal').classList.remove('open');
+  document.body.style.overflow = '';
+  const v = document.getElementById('demoVideo');
+  v.pause(); v.currentTime = 0;
+}
+function closeDemoModal(e) {
+  if (e.target === document.getElementById('demoModal')) closeDemo();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemo(); });
 </script>
 </body>
 </html>

@@ -3,77 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact & Book a Meeting — NSAI</title>
-<meta name="description" content="Book a free discovery call with NSAI. We'll understand your business and recommend the right AI agents or web development solution." />
+<title>Contact — NSAI</title>
 <link rel="stylesheet" href="../css/style.css" />
 <style>
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
-.contact-info-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-xl); padding: 36px; position: sticky; top: calc(var(--nav-h) + 24px);
-}
-.contact-method {
-  display: flex; align-items: flex-start; gap: 14px;
-  padding: 18px 0; border-bottom: 1px solid var(--border);
-}
-.contact-method:last-child { border-bottom: none; }
-.contact-method-icon {
-  width: 42px; height: 42px; border-radius: 10px;
-  background: var(--accent-dim); border: 1px solid rgba(0,229,195,0.2);
-  display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
-}
-.contact-method-label { font-size: 12px; color: var(--text3); font-family: var(--fm); margin-bottom: 4px; }
-.contact-method-val { font-size: 15px; font-weight: 600; color: var(--text); }
-.contact-method-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
-.form-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-xl); padding: 40px;
-}
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.meeting-slots {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px;
-}
-.slot-btn {
-  padding: 10px 8px; border-radius: 9px; border: 1px solid var(--border2);
-  background: var(--bg3); color: var(--text2); font-size: 13px; font-weight: 500;
-  cursor: pointer; font-family: var(--fu); transition: all 0.2s; text-align: center;
-}
-.slot-btn:hover, .slot-btn.selected { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-.gcal-btn {
-  display: flex; align-items: center; gap: 12px; justify-content: center;
-  padding: 16px 24px; border-radius: 12px; width: 100%;
-  background: linear-gradient(135deg, rgba(66,133,244,0.15), rgba(52,168,83,0.1));
-  border: 1px solid rgba(66,133,244,0.3); color: var(--text);
-  font-size: 15px; font-weight: 700; cursor: pointer; font-family: var(--fu);
-  transition: all 0.2s; margin-bottom: 20px;
-}
-.gcal-btn:hover { border-color: rgba(66,133,244,0.6); transform: translateY(-1px); }
-.divider { display: flex; align-items: center; gap: 14px; margin: 24px 0; color: var(--text3); font-size: 13px; }
-.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
-.faq-q { font-size: 15px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-.faq-a { font-size: 14px; color: var(--text2); line-height: 1.7; margin-top: 12px; display: none; }
-.faq-item.open .faq-a { display: block; }
-.faq-item.open .faq-arrow { transform: rotate(180deg); }
-.faq-arrow { transition: transform 0.2s; color: var(--text3); }
-@media(max-width:900px){ .contact-grid{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} .meeting-slots{grid-template-columns:repeat(2,1fr)} .contact-info-card{position:static} }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media(max-width:900px){ .contact-grid{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} .contact-info-card{position:static} .meeting-slots{grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
-
 <nav class="nav">
-  <a href="../index.html" class="nav-logo"><video autoplay loop muted playsinline width="120" height="40" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></a>
+  <a href="../index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="agents.html">AI Agents</a>
-    <a href="webdev.html">Web Dev</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="../index.html">Home</a><a href="agents.html">AI Agents</a><a href="webdev.html">Web Dev</a>
+    <a href="about-us.html">About Us</a><a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a><a href="contact.html" class="active">Contact</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
@@ -82,115 +26,77 @@
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
-  <a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
-  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a>
-  <a href="portfolio.html" onclick="toggleMobileNav()">Portfolio</a>
-  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a>
-  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a><a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
+  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
+  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a><a href="about.html" onclick="toggleMobileNav()">About</a>
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
-<!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="section-label" style="justify-content:center">Get in touch</div>
-    <h1 class="section-title reveal" style="text-align:center;max-width:600px;margin:0 auto 18px">Let's talk about your <em style="color:var(--accent);font-style:italic">business</em></h1>
-    <p class="section-sub reveal reveal-d1" style="text-align:center;margin:0 auto">Book a free 30-minute discovery call. We'll understand your needs and recommend the right solution — no sales pressure.</p>
+  <div class="container">
+    <div class="section-label reveal">Get in touch</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:480px">Let's talk about<br /><em style="font-style:italic;color:var(--text2)">your business</em></h1>
+    <p class="section-sub reveal reveal-d2">Book a free 30-minute discovery call. We'll understand your needs and recommend the right solution — no sales pressure.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
     <div class="contact-grid">
-
-      <!-- Left: Info -->
       <div>
         <div class="contact-info-card reveal">
-          <div style="font-family:var(--fd);font-size:22px;margin-bottom:6px">Swapnil Kumar Utkarsh</div>
-          <div style="font-size:13px;color:var(--text2);margin-bottom:24px">Founder & CEO, NSAI · Gandhinagar, Gujarat 🇮🇳</div>
+          <div style="font-family:var(--fd);font-size:20px;margin-bottom:4px">Swapnil Kumar Utkarsh</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:24px;font-family:var(--fm)">Founder & CEO, NSAI · Gandhinagar, Gujarat 🇮🇳</div>
 
           <div class="contact-method">
             <div class="contact-method-icon">📧</div>
-            <div>
-              <div class="contact-method-label">Email</div>
-              <a href="mailto:ceo@nsai.in" class="contact-method-val">ceo@nsai.in</a>
-              <div class="contact-method-sub">Replies within 2 hours</div>
-            </div>
+            <div><div class="contact-method-label">Email</div><a href="mailto:info@nsai.in" class="contact-method-val">info@nsai.in</a><div class="contact-method-sub">Replies within 2 hours</div></div>
           </div>
           <div class="contact-method">
             <div class="contact-method-icon">💬</div>
-            <div>
-              <div class="contact-method-label">WhatsApp</div>
-              <a href="https://wa.me/91XXXXXXXXXX" class="contact-method-val">+91 XXXXXXXXXX</a>
-              <div class="contact-method-sub">Fastest response · Mon–Sat 9am–8pm</div>
-            </div>
+            <div><div class="contact-method-label">WhatsApp</div><a href="https://wa.me/919005988730" class="contact-method-val">+91-9005988730</a><div class="contact-method-sub">Mon–Sat 9am–8pm IST</div></div>
           </div>
           <div class="contact-method">
             <div class="contact-method-icon">📍</div>
-            <div>
-              <div class="contact-method-label">Location</div>
-              <div class="contact-method-val">Gandhinagar, Gujarat</div>
-              <div class="contact-method-sub">India · IST (UTC+5:30)</div>
-            </div>
+            <div><div class="contact-method-label">Location</div><div class="contact-method-val">Gandhinagar, Gujarat</div><div class="contact-method-sub">IST (UTC+5:30)</div></div>
           </div>
           <div class="contact-method">
             <div class="contact-method-icon">🎓</div>
-            <div>
-              <div class="contact-method-label">Institution</div>
-              <div class="contact-method-val">IIT Gandhinagar</div>
-              <div class="contact-method-sub">Student founder · Building NSAI</div>
-            </div>
+            <div><div class="contact-method-label">Institution</div><div class="contact-method-val">IIT Gandhinagar</div><div class="contact-method-sub">Student founder</div></div>
           </div>
 
-          <div style="margin-top:24px;padding:18px;background:var(--accent-dim);border:1px solid rgba(0,229,195,0.2);border-radius:12px">
-            <div style="font-family:var(--fm);font-size:11px;color:var(--accent);margin-bottom:8px">WHAT TO EXPECT</div>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--text2)">
-              <li>✓ 30-minute free discovery call</li>
-              <li>✓ No sales pressure, just honest advice</li>
-              <li>✓ Custom recommendation for your business</li>
-              <li>✓ Pricing & timeline in writing same day</li>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px">
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em">What to expect</div>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--text2)">
+              <li>— 30-minute free discovery call</li>
+              <li>— No sales pressure, just honest advice</li>
+              <li>— Custom recommendation for your business</li>
+              <li>— Pricing & timeline in writing same day</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Right: Form + Scheduler -->
       <div>
         <div class="form-card reveal reveal-d1">
-          <div style="font-family:var(--fd);font-size:26px;margin-bottom:6px">Book a free call</div>
-          <div style="font-size:14px;color:var(--text2);margin-bottom:28px">Pick a slot via Google Calendar or send us a message below.</div>
+          <div style="font-family:var(--fd);font-size:24px;margin-bottom:4px">Book a free call</div>
+          <div style="font-size:13px;color:var(--text2);margin-bottom:24px">Pick a slot via Google Calendar or send a message below.</div>
 
-          <!-- Google Calendar Book Button -->
           <a href="https://calendar.app.google/XXXXXXXXXX" target="_blank" class="gcal-btn">
-            <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2" fill="none" stroke="#4285F4" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="#4285F4" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="#4285F4" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="#4285F4" stroke-width="2"/><text x="12" y="19" text-anchor="middle" font-size="7" fill="#34A853" font-weight="bold">30</text></svg>
-            📅 Book 30-min call via Google Calendar
+            <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
+            Book 30-min call via Google Calendar
           </a>
 
           <div class="divider">or send a message</div>
 
-          <!-- Contact Form -->
           <form id="contactForm">
             <div class="form-row">
-              <div class="form-group">
-                <label>Your name *</label>
-                <input type="text" placeholder="Rajesh Patel" required />
-              </div>
-              <div class="form-group">
-                <label>Company / Business</label>
-                <input type="text" placeholder="Acme Pvt Ltd" />
-              </div>
+              <div class="form-group"><label>Your name *</label><input type="text" placeholder="Rajesh Patel" required /></div>
+              <div class="form-group"><label>Company / Business</label><input type="text" placeholder="Acme Pvt Ltd" /></div>
             </div>
             <div class="form-row">
-              <div class="form-group">
-                <label>Email *</label>
-                <input type="email" placeholder="raj@acme.in" required />
-              </div>
-              <div class="form-group">
-                <label>WhatsApp number</label>
-                <input type="tel" placeholder="+91 9876543210" />
-              </div>
+              <div class="form-group"><label>Email *</label><input type="email" placeholder="raj@acme.in" required /></div>
+              <div class="form-group"><label>WhatsApp number</label><input type="tel" placeholder="+91 9876543210" /></div>
             </div>
             <div class="form-group">
               <label>What are you interested in? *</label>
@@ -199,17 +105,16 @@
                 <option>AI Agents — Sales Lead Gen</option>
                 <option>AI Agents — Customer Support</option>
                 <option>AI Agents — Doc & Report Automation</option>
-                <option>AI Agents — Custom build for my business</option>
+                <option>AI Agents — Custom build</option>
                 <option>Web Development — New website</option>
                 <option>Web Development — Fix existing site</option>
-                <option>Web Development — E-commerce store</option>
                 <option>Both AI Agents + Web Dev</option>
-                <option>Just exploring / have questions</option>
+                <option>Just exploring</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Tell us about your business & what you need</label>
-              <textarea placeholder="We are a D2C brand in Ahmedabad selling ethnic wear. We need a sales agent to find and reach out to distributors automatically, and a new website to showcase our products..."></textarea>
+              <label>Tell us about your business</label>
+              <textarea placeholder="We are a D2C brand in Ahmedabad selling ethnic wear..."></textarea>
             </div>
             <div class="form-group">
               <label>Preferred call time (IST)</label>
@@ -222,8 +127,8 @@
                 <button type="button" class="slot-btn" onclick="selectSlot(this)">Sat 11am</button>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px">Send message →</button>
-            <p style="font-family:var(--fm);font-size:11px;color:var(--text3);text-align:center;margin-top:14px">We'll reply within 2 hours · ceo@nsai.in · No spam ever</p>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Send message →</button>
+            <p style="font-family:var(--fm);font-size:10px;color:var(--text3);text-align:center;margin-top:12px">Reply within 2 hours · No spam ever</p>
           </form>
         </div>
       </div>
@@ -231,35 +136,30 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="section section-alt">
-  <div class="container" style="max-width:740px">
+  <div class="container" style="max-width:640px">
     <div class="section-label reveal">FAQ</div>
-    <h2 class="section-title reveal reveal-d1">Common <em style="font-style:italic;color:var(--accent)">questions</em></h2>
-    <div style="margin-top:36px" id="faqList">
+    <h2 class="section-title reveal reveal-d1">Common <em style="font-style:italic;color:var(--text2)">questions</em></h2>
+    <div style="margin-top:32px" id="faqList">
       <div class="faq-item reveal">
         <div class="faq-q" onclick="toggleFaq(this)">How long does it take to deploy an AI agent? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Most agents go live within 24 hours of onboarding. Complex custom integrations (Tally, custom CRM) may take 48–72 hours.</div>
+        <div class="faq-a">Most agents go live within 24 hours of onboarding. Complex custom integrations may take 48–72 hours.</div>
       </div>
       <div class="faq-item reveal reveal-d1">
-        <div class="faq-q" onclick="toggleFaq(this)">Do I need technical knowledge to use your agents? <span class="faq-arrow">▾</span></div>
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need technical knowledge? <span class="faq-arrow">▾</span></div>
         <div class="faq-a">Zero technical knowledge required. We handle all setup, integration and configuration. You just use the dashboard and WhatsApp like normal.</div>
       </div>
       <div class="faq-item reveal reveal-d2">
         <div class="faq-q" onclick="toggleFaq(this)">Can the agents speak Hindi and other Indian languages? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Yes — our agents support Hindi, Gujarati, Tamil, Telugu, Marathi and English. We can configure the primary language based on your customers.</div>
+        <div class="faq-a">Yes — our agents support Hindi, Gujarati, Tamil, Telugu, Marathi and English. We configure the primary language based on your customers.</div>
       </div>
-      <div class="faq-item reveal reveal-d3">
+      <div class="faq-item reveal">
         <div class="faq-q" onclick="toggleFaq(this)">What's the minimum commitment? <span class="faq-arrow">▾</span></div>
         <div class="faq-a">Month-to-month. No annual lock-in for the Starter plan. Growth plan clients get better rates on 3-month or 6-month commitments.</div>
       </div>
-      <div class="faq-item reveal">
-        <div class="faq-q" onclick="toggleFaq(this)">Can you build a completely custom agent for our business? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Yes — that's one of our specialties. We've built custom agents for BFSI, manufacturing, EdTech and retail. Book a call to discuss your requirements.</div>
-      </div>
       <div class="faq-item reveal reveal-d1">
         <div class="faq-q" onclick="toggleFaq(this)">Is our data secure? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">All data is processed and stored in compliance with India's DPDP Act. We never share your data with third parties. Enterprise clients get on-premise deployment options.</div>
+        <div class="faq-a">All data is processed and stored in compliance with India's DPDP Act. We never share data with third parties. Enterprise clients get on-premise deployment options.</div>
       </div>
     </div>
   </div>
@@ -268,15 +168,12 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="nav-logo" style="margin-bottom:12px"><video autoplay loop muted playsinline width="100" height="34" style="object-fit:contain;display:block;mix-blend-mode:screen">
-  <source src="../assets/logo.mp4" type="video/mp4">
-  NSAI
-</video></div>
-      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Based in Gandhinagar, Gujarat 🇮🇳</p>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
     </div>
-    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">Customer Support AI</a></li><li><a href="agents.html">Sales Lead Gen</a></li><li><a href="agents.html">View all 17 →</a></li></ul></div>
-    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">E-Commerce</a></li><li><a href="webdev.html">MSME Websites</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="mailto:ceo@nsai.in">ceo@nsai.in</a></li></ul></div>
+    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li></ul></div>
+    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="about-us.html">About Us</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
 </footer>
@@ -288,20 +185,14 @@ function selectSlot(btn) {
   btn.classList.add('selected');
 }
 function toggleFaq(el) {
-  const item = el.closest('.faq-item');
-  item.classList.toggle('open');
+  el.closest('.faq-item').classList.toggle('open');
 }
-// Pre-fill agent from URL param
 const params = new URLSearchParams(window.location.search);
 const agent = params.get('agent');
 if (agent) {
   const sel = document.querySelector('select');
-  if (sel) {
-    for (let opt of sel.options) {
-      if (opt.text.toLowerCase().includes(agent.toLowerCase().split(' ')[0])) {
-        opt.selected = true; break;
-      }
-    }
+  if (sel) for (let opt of sel.options) {
+    if (opt.text.toLowerCase().includes(agent.toLowerCase().split(' ')[0])) { opt.selected = true; break; }
   }
 }
 </script>
