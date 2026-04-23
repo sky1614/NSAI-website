@@ -77,6 +77,15 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active { color: var(--text); }
+.nav-links a.nav-leadgen {
+  color: var(--accent);
+  border: 1px solid rgba(200,245,90,0.25);
+  background: rgba(200,245,90,0.06);
+  border-radius: 6px;
+}
+.nav-links a.nav-leadgen:hover {
+  background: rgba(200,245,90,0.12);
+}
 .nav-right { display: flex; align-items: center; gap: 10px; }
 .theme-toggle {
   width: 34px; height: 34px; border-radius: 8px;
