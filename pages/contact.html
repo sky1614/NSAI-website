@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact — NSAI</title>
-<link rel="stylesheet" href="../css/style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Early Access — NSAI</title>
+<link rel="stylesheet" href="../css/style.css"/>
 <style>
-.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media(max-width:900px){ .contact-grid{grid-template-columns:1fr} .form-row{grid-template-columns:1fr} .contact-info-card{position:static} .meeting-slots{grid-template-columns:repeat(2,1fr)} }
+.access-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start;}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:32px;position:sticky;top:calc(var(--nav-h) + 20px);}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:36px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.what-item{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);}
+.what-item:last-child{border-bottom:none;}
+.what-icon{width:38px;height:38px;border-radius:9px;background:var(--bg);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.what-label{font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.what-val{font-size:14px;font-weight:500;}
+.what-sub{font-size:12px;color:var(--text3);margin-top:2px;}
+@media(max-width:900px){.access-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}.info-card{position:static;}}
 </style>
 </head>
 <body>
@@ -16,154 +24,113 @@
   <a href="../index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
     <a href="../index.html">Home</a>
-    <a href="agents.html">AI Agents</a>
-    <a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
-    <a href="webdev.html">Web Dev</a>
-    <a href="about-us.html">About Us</a><a href="pricing.html">Pricing</a>
-    <a href="about.html">About</a><a href="contact.html" class="active">Contact</a>
+    <a href="agents.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="about-us.html">Team</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="https://leadgen.nsai.in" target="_blank" class="nav-leadgen">Lead Gen ↗</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
     <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
-    <a href="contact.html" class="nav-cta">Book a call →</a>
+    <a href="contact.html" class="nav-cta">Request Access →</a>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="../index.html" onclick="toggleMobileNav()">Home</a><a href="agents.html" onclick="toggleMobileNav()">AI Agents</a>
-  <a href="webdev.html" onclick="toggleMobileNav()">Web Dev</a><a href="about-us.html" onclick="toggleMobileNav()">About Us</a>
-  <a href="pricing.html" onclick="toggleMobileNav()">Pricing</a><a href="about.html" onclick="toggleMobileNav()">About</a>
-  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">Services</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">Team</a>
+  <a href="contact.html" class="active" onclick="toggleMobileNav()">Contact</a>
+  <a href="https://leadgen.nsai.in" target="_blank" onclick="toggleMobileNav()">Lead Gen ↗</a>
 </div>
 
 <section class="page-hero">
   <div class="container">
-    <div class="section-label reveal">Get in touch</div>
-    <h1 class="section-title reveal reveal-d1" style="max-width:480px">Let's talk about<br /><em style="font-style:italic;color:var(--text2)">your business</em></h1>
-    <p class="section-sub reveal reveal-d2">Book a free 30-minute discovery call. We'll understand your needs and recommend the right solution — no sales pressure.</p>
+    <div class="section-label reveal">Early Access</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:520px;">Request access to<br/><em style="font-style:italic;color:var(--text2)">the infrastructure.</em></h1>
+    <p class="section-sub reveal reveal-d2">We're onboarding agent teams as design partners. No commitment — just a conversation about what you're building and where you're hitting walls.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="contact-grid">
+    <div class="access-grid">
+
       <div>
-        <div class="contact-info-card reveal">
-          <div style="font-family:var(--fd);font-size:20px;margin-bottom:4px">Swapnil Kumar Utkarsh</div>
-          <div style="font-size:12px;color:var(--text3);margin-bottom:24px;font-family:var(--fm)">Founder & CEO, NSAI · Gandhinagar, Gujarat 🇮🇳</div>
+        <div class="info-card reveal">
+          <div style="font-family:var(--fd);font-size:20px;margin-bottom:4px;">Swapnil Kumar Utkarsh</div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:24px;font-family:var(--fm);">Co-founder & CEO · NSAI · Gandhinagar, India</div>
 
-          <div class="contact-method">
-            <div class="contact-method-icon">📧</div>
-            <div><div class="contact-method-label">Email</div><a href="mailto:info@nsai.in" class="contact-method-val">info@nsai.in</a><div class="contact-method-sub">Replies within 2 hours</div></div>
+          <div class="what-item">
+            <div class="what-icon">⚡</div>
+            <div><div class="what-label">What you get</div><div class="what-val">Access to 3 live layers</div><div class="what-sub">Execution, Memory, Trust & Safety — in private beta</div></div>
           </div>
-          <div class="contact-method">
-            <div class="contact-method-icon">💬</div>
-            <div><div class="contact-method-label">WhatsApp</div><a href="https://wa.me/919005988730" class="contact-method-val">+91-9005988730</a><div class="contact-method-sub">Mon–Sat 9am–8pm IST</div></div>
+          <div class="what-item">
+            <div class="what-icon">🤝</div>
+            <div><div class="what-label">Design partner</div><div class="what-val">Shape the roadmap</div><div class="what-sub">Your use case influences what we build next</div></div>
           </div>
-          <div class="contact-method">
-            <div class="contact-method-icon">📍</div>
-            <div><div class="contact-method-label">Location</div><div class="contact-method-val">Gandhinagar, Gujarat</div><div class="contact-method-sub">IST (UTC+5:30)</div></div>
-          </div>
-          <div class="contact-method">
-            <div class="contact-method-icon">🎓</div>
-            <div><div class="contact-method-label">Institution</div><div class="contact-method-val">IIT Gandhinagar</div><div class="contact-method-sub">Student founder</div></div>
+          <div class="what-item">
+            <div class="what-icon">📧</div>
+            <div><div class="what-label">Direct contact</div><div class="what-val">info@nsai.in</div><div class="what-sub">Response within 24 hours</div></div>
           </div>
 
-          <div style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px">
-            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em">What to expect</div>
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;font-size:13px;color:var(--text2)">
-              <li>— 30-minute free discovery call</li>
-              <li>— No sales pressure, just honest advice</li>
-              <li>— Custom recommendation for your business</li>
-              <li>— Pricing & timeline in writing same day</li>
-            </ul>
+          <div style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:10px;">
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em;">Currently accepting</div>
+            <div style="font-family:var(--fd);font-size:32px;color:var(--accent);">10</div>
+            <div style="font-size:13px;color:var(--text2);margin-top:4px;">design partner teams — agent builders who are tired of rebuilding execution infrastructure from scratch.</div>
           </div>
         </div>
       </div>
 
       <div>
         <div class="form-card reveal reveal-d1">
-          <div style="font-family:var(--fd);font-size:24px;margin-bottom:4px">Book a free call</div>
-          <div style="font-size:13px;color:var(--text2);margin-bottom:24px">Pick a slot via Google Calendar or send a message below.</div>
+          <div style="font-family:var(--fd);font-size:24px;margin-bottom:4px;">Request Early Access</div>
+          <div style="font-size:13px;color:var(--text2);margin-bottom:28px;">Tell us what you're building. We'll reach out within 24 hours.</div>
 
-          <a href="https://calendar.app.google/opaLEbrDbPoDHJpAA" target="_blank" class="gcal-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.4"/></svg>
-            Book 30-min call via Google Calendar
-          </a>
-
-          <div class="divider">or send a message</div>
-
-          <form id="contactForm">
+          <form id="accessForm">
             <div class="form-row">
-              <div class="form-group"><label>Your name *</label><input type="text" placeholder="Rajesh Patel" required /></div>
-              <div class="form-group"><label>Company / Business</label><input type="text" placeholder="Acme Pvt Ltd" /></div>
+              <div class="form-group"><label>Your name *</label><input type="text" placeholder="Alex Chen" required/></div>
+              <div class="form-group"><label>Company</label><input type="text" placeholder="Acme AI"/></div>
             </div>
             <div class="form-row">
-              <div class="form-group"><label>Email *</label><input type="email" placeholder="raj@acme.in" required /></div>
-              <div class="form-group"><label>WhatsApp number</label><input type="tel" placeholder="+91 9876543210" /></div>
+              <div class="form-group"><label>Work email *</label><input type="email" placeholder="alex@acme.ai" required/></div>
+              <div class="form-group"><label>Role</label><input type="text" placeholder="CTO / AI Engineer"/></div>
             </div>
             <div class="form-group">
-              <label>What are you interested in? *</label>
+              <label>What are you building with agents? *</label>
               <select required>
-                <option value="">— Select —</option>
-                <option>AI Agents — Sales Lead Gen</option>
-                <option>AI Agents — Customer Support</option>
-                <option>AI Agents — Doc & Report Automation</option>
-                <option>AI Agents — Custom build</option>
-                <option>Web Development — New website</option>
-                <option>Web Development — Fix existing site</option>
-                <option>Both AI Agents + Web Dev</option>
-                <option>Just exploring</option>
+                <option value="">— Select closest match —</option>
+                <option>Sales & lead generation automation</option>
+                <option>Legal & contract workflow automation</option>
+                <option>Customer support automation</option>
+                <option>Finance & operations automation</option>
+                <option>Healthcare workflow automation</option>
+                <option>Multi-agent orchestration system</option>
+                <option>Other enterprise agent workflow</option>
               </select>
             </div>
             <div class="form-group">
-              <label>Tell us about your business</label>
-              <textarea placeholder="We are a D2C brand in Ahmedabad selling ethnic wear..."></textarea>
+              <label>Where are you hitting execution problems?</label>
+              <textarea placeholder="E.g. We're spending weeks building tool authentication and retry logic from scratch every time we add a new integration..."></textarea>
             </div>
             <div class="form-group">
-              <label>Preferred call time (IST)</label>
-              <div class="meeting-slots">
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Mon 10am</button>
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Mon 3pm</button>
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Tue 11am</button>
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Wed 10am</button>
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Thu 4pm</button>
-                <button type="button" class="slot-btn" onclick="selectSlot(this)">Sat 11am</button>
+              <label>Which layers interest you most?</label>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;" id="layerBtns">
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">⚡ Execution</button>
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">🧠 Memory</button>
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">🛡️ Trust & Safety</button>
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">👁️ Perception</button>
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">🔀 Orchestration</button>
+                <button type="button" class="filter-btn" onclick="toggleLayer(this)">📊 Analytics</button>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Send message →</button>
-            <p style="font-family:var(--fm);font-size:10px;color:var(--text3);text-align:center;margin-top:12px">Reply within 2 hours · No spam ever</p>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px;">Request Early Access →</button>
+            <p style="font-family:var(--fm);font-size:10px;color:var(--text3);text-align:center;margin-top:12px;">No spam. No sales calls. Just a direct conversation with the founders.</p>
           </form>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section section-alt">
-  <div class="container" style="max-width:640px">
-    <div class="section-label reveal">FAQ</div>
-    <h2 class="section-title reveal reveal-d1">Common <em style="font-style:italic;color:var(--text2)">questions</em></h2>
-    <div style="margin-top:32px" id="faqList">
-      <div class="faq-item reveal">
-        <div class="faq-q" onclick="toggleFaq(this)">How long does it take to deploy an AI agent? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Most agents go live within 24 hours of onboarding. Complex custom integrations may take 48–72 hours.</div>
-      </div>
-      <div class="faq-item reveal reveal-d1">
-        <div class="faq-q" onclick="toggleFaq(this)">Do I need technical knowledge? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Zero technical knowledge required. We handle all setup, integration and configuration. You just use the dashboard and WhatsApp like normal.</div>
-      </div>
-      <div class="faq-item reveal reveal-d2">
-        <div class="faq-q" onclick="toggleFaq(this)">Can the agents speak Hindi and other Indian languages? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Yes — our agents support Hindi, Gujarati, Tamil, Telugu, Marathi and English. We configure the primary language based on your customers.</div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q" onclick="toggleFaq(this)">What's the minimum commitment? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Month-to-month. No annual lock-in for the Starter plan. Growth plan clients get better rates on 3-month or 6-month commitments.</div>
-      </div>
-      <div class="faq-item reveal reveal-d1">
-        <div class="faq-q" onclick="toggleFaq(this)">Is our data secure? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">All data is processed and stored in compliance with India's DPDP Act. We never share data with third parties. Enterprise clients get on-premise deployment options.</div>
-      </div>
     </div>
   </div>
 </section>
@@ -171,33 +138,26 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
-      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px;">NSAI</div>
+      <p class="footer-brand-desc">Infrastructure for AI agents. Execution, memory, and safety primitives. Built in Gandhinagar, India.</p>
     </div>
-    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="agents.html">All Agents</a></li></ul></div>
-    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="webdev.html">Services</a></li><li><a href="about-us.html">About Us</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
+    <div class="footer-col"><h4>Platform</h4><ul><li><a href="platform.html">All 8 Layers</a></li></ul></div>
+    <div class="footer-col"><h4>Proof</h4><ul><li><a href="agents.html">Lead Gen Agent</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">About</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Infrastructure for AI agents 🤖</span></div>
 </footer>
 
 <script src="../js/main.js"></script>
 <script>
-function selectSlot(btn) {
-  document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-}
-function toggleFaq(el) {
-  el.closest('.faq-item').classList.toggle('open');
-}
-const params = new URLSearchParams(window.location.search);
-const agent = params.get('agent');
-if (agent) {
-  const sel = document.querySelector('select');
-  if (sel) for (let opt of sel.options) {
-    if (opt.text.toLowerCase().includes(agent.toLowerCase().split(' ')[0])) { opt.selected = true; break; }
-  }
-}
+function toggleLayer(btn){btn.classList.toggle('active');}
+document.getElementById('accessForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=this.querySelector('button[type=submit]');
+  btn.textContent='✓ Request received!';btn.disabled=true;
+  setTimeout(()=>{btn.textContent='Request Early Access →';btn.disabled=false;this.reset();
+  document.querySelectorAll('#layerBtns .filter-btn').forEach(b=>b.classList.remove('active'));},3000);
+});
 </script>
 </body>
 </html>

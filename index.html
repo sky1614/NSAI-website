@@ -1,335 +1,441 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSAI — AI Agents & Web Development for Indian Businesses</title>
-<meta name="description" content="AI agents and professional web development for Indian businesses. Built in Gandhinagar, Gujarat." />
-<link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NSAI — Stop Doing Manually What AI Can Do For You</title>
+<meta name="description" content="We help businesses automate repetitive work using custom AI agents. ₹1.21L revenue generated. IIT Gandhinagar founders. Real results." />
+<link rel="stylesheet" href="css/style.css"/>
 <style>
-.hero {
-  min-height: 100vh; display: flex; align-items: center;
-  padding: calc(var(--nav-h) + 60px) 40px 80px; position: relative;
+/* ── Hero ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nav-h)+72px) 40px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(200,245,90,0.04),transparent);pointer-events:none;}
+.hero-inner{max-width:var(--max);margin:0 auto;width:100%;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;color:var(--text3);letter-spacing:.08em;margin-bottom:28px;animation:up .7s ease both;}
+.hero-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:blink 2s ease-in-out infinite;}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:var(--fd);font-size:clamp(48px,7.5vw,96px);font-weight:400;line-height:1.01;letter-spacing:-1.5px;max-width:860px;margin-bottom:24px;animation:up .7s ease .1s both;}
+.hero h1 em{color:var(--text2);font-style:italic;}
+.hero-sub{font-size:17px;color:var(--text2);max-width:480px;line-height:1.75;margin-bottom:40px;animation:up .7s ease .2s both;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;animation:up .7s ease .3s both;}
+.hero-stats{display:flex;gap:32px;margin-top:64px;animation:up .7s ease .4s both;flex-wrap:wrap;}
+.hero-stat-val{font-family:var(--fd);font-size:28px;}
+.hero-stat-label{font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;}
+
+/* ── Marquee ── */
+.marquee-section{padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent);}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 35s linear infinite;}
+.marquee-item{display:flex;align-items:center;gap:10px;white-space:nowrap;font-family:var(--fm);font-size:11px;color:var(--text3);letter-spacing:.04em;padding:0 28px;}
+.marquee-item::before{content:'·';color:var(--accent);margin-right:10px;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── Problem ── */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
+.problem-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;}
+.problem-num{font-family:var(--fd);font-size:36px;color:var(--text3);margin-bottom:16px;opacity:.3;}
+.problem-title{font-size:15px;font-weight:600;margin-bottom:10px;}
+.problem-desc{font-size:13px;color:var(--text2);line-height:1.7;}
+
+/* ── Layers grid ── */
+.layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;}
+.layer-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;transition:border-color .2s;position:relative;}
+.layer-card:hover{border-color:var(--border2);}
+.layer-card.live{border-color:rgba(200,245,90,.15);}
+.layer-icon{font-size:22px;margin-bottom:14px;}
+.layer-name{font-size:14px;font-weight:600;margin-bottom:6px;}
+.layer-desc{font-size:12px;color:var(--text2);line-height:1.65;margin-bottom:14px;}
+.layer-status{display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:10px;}
+
+/* ── Proof ── */
+.proof-card{background:var(--surface);border:1px solid rgba(200,245,90,.12);border-radius:var(--r-xl);padding:40px;margin-top:48px;}
+.proof-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:28px;}
+.proof-stat{padding:20px;text-align:center;border-right:1px solid var(--border);}
+.proof-stat:last-child{border-right:none;}
+.proof-stat-val{font-family:var(--fd);font-size:26px;}
+.proof-stat-label{font-size:11px;color:var(--text3);font-family:var(--fm);margin-top:4px;text-transform:uppercase;letter-spacing:.06em;}
+.tech-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:20px;}
+.tech-tag{font-family:var(--fm);font-size:10px;padding:3px 9px;border-radius:99px;border:1px solid var(--border);color:var(--text3);}
+
+/* ── Timeline ── */
+.timing-row{display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);}
+.timing-row:last-child{border-bottom:none;}
+.timing-year{font-family:var(--fm);font-size:11px;color:var(--text3);width:80px;flex-shrink:0;padding-top:2px;}
+.timing-label{font-size:14px;font-weight:500;}
+.timing-sub{font-size:13px;color:var(--text2);margin-top:3px;}
+.timing-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);flex-shrink:0;margin-top:5px;}
+.timing-dot.now{background:var(--accent);}
+
+/* ── CTA ── */
+.cta-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:72px 40px;text-align:center;}
+.cta-form{display:flex;flex-direction:column;gap:12px;max-width:420px;margin:32px auto 0;}
+.cta-form input,.cta-form textarea{background:var(--bg);border:1px solid var(--border2);color:var(--text);padding:12px 16px;border-radius:8px;font-size:14px;font-family:var(--fu);outline:none;transition:border-color .2s;width:100%;}
+.cta-form input:focus,.cta-form textarea:focus{border-color:var(--text2);}
+.cta-form textarea{min-height:80px;resize:none;}
+.cta-note{font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:10px;}
+
+@media(max-width:960px){
+  .layers-grid{grid-template-columns:repeat(2,1fr);}
+  .problem-grid{grid-template-columns:1fr;}
+  .proof-stats{grid-template-columns:repeat(2,1fr);}
+  .proof-stat:nth-child(2){border-right:none;}
+  .proof-stat:nth-child(1),.proof-stat:nth-child(2){border-bottom:1px solid var(--border);}
+  .hero{padding:calc(var(--nav-h)+48px) 20px 60px;}
 }
-.hero-inner { max-width: var(--max); margin: 0 auto; width: 100%; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--fm); font-size: 11px; color: var(--text3);
-  letter-spacing: 0.08em; margin-bottom: 28px; animation: up 0.7s ease both;
-}
-.hero-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: blink 2s ease-in-out infinite; }
-@keyframes up { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
-.hero h1 {
-  font-family: var(--fd); font-size: clamp(48px, 7vw, 88px);
-  font-weight: 400; line-height: 1.02; letter-spacing: -1px;
-  max-width: 820px; margin-bottom: 24px; animation: up 0.7s ease 0.1s both;
-}
-.hero h1 em { color: var(--text2); font-style: italic; }
-.hero-sub { font-size: 17px; color: var(--text2); max-width: 460px; line-height: 1.7; margin-bottom: 40px; animation: up 0.7s ease 0.2s both; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: up 0.7s ease 0.3s both; }
-.hero-line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--border); }
-.work-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
-.work-tab {
-  padding: 10px 20px; font-size: 13px; font-weight: 500; color: var(--text3);
-  cursor: pointer; border: none; background: transparent; font-family: var(--fu);
-  border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.2s, border-color 0.2s;
-}
-.work-tab:hover { color: var(--text2); }
-.work-tab.active { color: var(--text); border-bottom-color: var(--text); }
-.work-panel { display: none; }
-.work-panel.active { display: block; }
-.project-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-.project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; transition: border-color 0.2s; }
-.project-card:hover { border-color: var(--border2); }
-.project-preview { height: 160px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); position: relative; }
-.project-body { padding: 20px; }
-.project-tag { font-family: var(--fm); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-.project-name { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-.project-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; }
-.agents-list { display: flex; flex-direction: column; gap: 0; }
-.agent-row { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
-.agent-row:last-child { border-bottom: none; }
-.agent-row-icon { font-size: 18px; width: 32px; flex-shrink: 0; text-align: center; }
-.agent-row-name { font-size: 14px; font-weight: 500; flex: 1; }
-.agent-row-cat { font-family: var(--fm); font-size: 10px; color: var(--text3); width: 80px; text-align: right; }
-.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; margin-top: 48px; }
-.service-block { padding: 40px; background: var(--bg2); transition: background 0.2s; }
-.service-block:hover { background: var(--surface); }
-.service-tag { font-family: var(--fm); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
-.service-title { font-family: var(--fd); font-size: 26px; margin-bottom: 14px; }
-.service-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
-.service-list li { font-size: 13px; color: var(--text2); padding-left: 16px; position: relative; }
-.service-list li::before { content: '—'; position: absolute; left: 0; color: var(--text3); }
-.b-mock { width: 130px; height: 100px; border-radius: 7px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.03); display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,0.5); }
-.b-bar { height: 18px; background: rgba(255,255,255,0.05); display: flex; align-items: center; gap: 3px; padding: 0 7px; }
-.b-dot { width: 5px; height: 5px; border-radius: 50%; }
-.b-body { flex: 1; padding: 6px; display: flex; flex-direction: column; gap: 3px; }
-.b-line { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.09); }
-@media(max-width:900px){ .project-grid{grid-template-columns:1fr 1fr} }
-@media(max-width:600px){ .project-grid{grid-template-columns:1fr} .services-grid{grid-template-columns:1fr} .hero{padding:calc(var(--nav-h)+48px) 20px 60px;} }
-/* Demo modal */
-.demo-modal-overlay {
-  display: none; position: fixed; inset: 0; z-index: 1000;
-  background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
-  align-items: center; justify-content: center; padding: 24px;
-}
-.demo-modal-overlay.open { display: flex; }
-.demo-modal {
-  background: var(--bg2); border: 1px solid var(--border2); border-radius: 16px;
-  overflow: hidden; width: 100%; max-width: 820px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6); animation: modalIn 0.25s ease both;
-}
-@keyframes modalIn { from{opacity:0;transform:scale(0.96)} to{opacity:1;transform:scale(1)} }
-.demo-modal-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 20px; border-bottom: 1px solid var(--border);
-}
-.demo-modal-title { font-size: 14px; font-weight: 600; }
-.demo-modal-close {
-  width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--border);
-  background: transparent; cursor: pointer; color: var(--text2); font-size: 16px;
-  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
-}
-.demo-modal-close:hover { border-color: var(--border2); color: var(--text); }
-.demo-modal-screen { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; }
-.demo-modal-screen video { width: 100%; height: 100%; object-fit: contain; display: block; }
-.demo-placeholder {
-  position: absolute; inset: 0; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 14px;
-  background: linear-gradient(135deg, #080d14, #0d1a28); color: var(--text3);
-}
-.demo-modal-footer {
-  padding: 14px 20px; border-top: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  font-size: 12px; color: var(--text3); font-family: var(--fm); flex-wrap: wrap; gap: 10px;
+@media(max-width:640px){
+  .layers-grid{grid-template-columns:1fr;}
+  .proof-stats{grid-template-columns:1fr;}
+  .proof-stat{border-right:none!important;border-bottom:1px solid var(--border);}
+  .proof-stat:last-child{border-bottom:none;}
+  .hero-stats{gap:20px;}
+  .cta-box{padding:48px 24px;}
 }
 </style>
 </head>
-
-<!-- Demo Video Modal -->
-<div class="demo-modal-overlay" id="demoModal" onclick="closeDemoModal(event)">
-  <div class="demo-modal">
-    <div class="demo-modal-header">
-      <div class="demo-modal-title">🎯 Sales Lead Gen Agent — Demo</div>
-      <button class="demo-modal-close" onclick="closeDemo()">✕</button>
-    </div>
-    <div class="demo-modal-screen">
-      <video id="demoVideo" controls preload="none" style="width:100%;height:100%;object-fit:contain;background:#000">
-        <source src="assets/demo-sales-leadgen.mp4" type="video/mp4">
-      </video>
-      <div class="demo-placeholder" id="demoPlaceholder">
-        <div style="font-size:48px;opacity:0.4">▶</div>
-        <div style="font-family:var(--fm);font-size:12px;letter-spacing:0.06em;text-align:center;line-height:1.8">Demo video coming soon<br />Place your video at assets/demo-sales-leadgen.mp4</div>
-      </div>
-    </div>
-    <div class="demo-modal-footer">
-      <span>Sales Lead Gen Agent · Live Beta · Free for first 50 users</span>
-      <a href="pages/contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
-    </div>
-  </div>
-</div>
-
 <body>
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="pages/agents.html">AI Agents</a>
-    <a href="https://leadgen.nsai.in" target="_blank" class="nav-leadgen">Lead Gen ↗</a>
-    <a href="pages/webdev.html">Web Dev</a>
-    <a href="pages/about-us.html">About Us</a>
-    <a href="pages/pricing.html">Pricing</a>
+    <a href="pages/agents.html">Services</a>
     <a href="pages/about.html">About</a>
+    <a href="pages/about-us.html">Team</a>
     <a href="pages/contact.html">Contact</a>
+    <a href="https://leadgen.nsai.in" target="_blank" class="nav-leadgen">Lead Gen ↗</a>
   </div>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
     <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
-    <a href="pages/contact.html" class="nav-cta">Book a call →</a>
+    <a href="pages/contact.html" class="nav-cta">Book Free Audit →</a>
   </div>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" onclick="toggleMobileNav()">Home</a>
-  <a href="pages/agents.html" onclick="toggleMobileNav()">AI Agents</a>
-  <a href="https://leadgen.nsai.in" target="_blank" onclick="toggleMobileNav()">Lead Gen ↗</a>
-  <a href="pages/webdev.html" onclick="toggleMobileNav()">Web Dev</a>
-  <a href="pages/about-us.html" onclick="toggleMobileNav()">About Us</a>
-  <a href="pages/pricing.html" onclick="toggleMobileNav()">Pricing</a>
+  <a href="pages/agents.html" onclick="toggleMobileNav()">Services</a>
   <a href="pages/about.html" onclick="toggleMobileNav()">About</a>
+  <a href="pages/about-us.html" onclick="toggleMobileNav()">Team</a>
   <a href="pages/contact.html" onclick="toggleMobileNav()">Contact</a>
+  <a href="https://leadgen.nsai.in" target="_blank" onclick="toggleMobileNav()">Lead Gen ↗</a>
 </div>
 
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="hero-dot"></span>
-      Gandhinagar, Gujarat · Building in public
+      IIT Gandhinagar · Customize solutions · 85%+ Margin
     </div>
-    <h1>AI that works.<br /><em>Built for India.</em></h1>
-    <p class="hero-sub">AI agents and professional websites for Indian businesses. No demos — real automations that save time and grow revenue.</p>
+    <h1>Stop doing manually<br /><em>what AI can do for you.</em></h1>
+    <p class="hero-sub">We help businesses automate repetitive work using custom AI agents — like lead follow-up, invoice processing, review analysis etc. Save 20+ hours every month.</p>
     <div class="hero-actions">
-      <a href="pages/contact.html" class="btn btn-primary">Book a free call →</a>
-      <a href="pages/about.html" class="btn btn-outline">About NSAI</a>
+      <a href="pages/contact.html" class="btn btn-primary">Book a Free Audit →</a>
+      <a href="https://leadgen.nsai.in" target="_blank" class="btn btn-outline">Try LeadGen AI ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">8</div>
+        <div class="hero-stat-label">Infrastructure layers</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">3</div>
+        <div class="hero-stat-label">Live in beta</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">11</div>
+        <div class="hero-stat-label">AI techniques in production</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">0</div>
+        <div class="hero-stat-label">External funding</div>
+      </div>
     </div>
   </div>
-  <div class="hero-line"></div>
 </section>
 
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Execution Layer</span>
+    <span class="marquee-item">Memory Layer</span>
+    <span class="marquee-item">Trust & Safety</span>
+    <span class="marquee-item">OPRO Self-Optimization</span>
+    <span class="marquee-item">Reflexion Failure Learning</span>
+    <span class="marquee-item">MemGPT Tiered Memory</span>
+    <span class="marquee-item">ReAct Reasoning</span>
+    <span class="marquee-item">LLM-as-Judge</span>
+    <span class="marquee-item">Graph Neural Networks</span>
+    <span class="marquee-item">Spatial Scoring</span>
+    <span class="marquee-item">Multi-Agent Orchestration</span>
+    <span class="marquee-item">Redis Queues</span>
+    <span class="marquee-item">Perception Layer</span>
+    <span class="marquee-item">Agent Marketplace</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Execution Layer</span>
+    <span class="marquee-item">Memory Layer</span>
+    <span class="marquee-item">Trust & Safety</span>
+    <span class="marquee-item">OPRO Self-Optimization</span>
+    <span class="marquee-item">Reflexion Failure Learning</span>
+    <span class="marquee-item">MemGPT Tiered Memory</span>
+    <span class="marquee-item">ReAct Reasoning</span>
+    <span class="marquee-item">LLM-as-Judge</span>
+    <span class="marquee-item">Graph Neural Networks</span>
+    <span class="marquee-item">Spatial Scoring</span>
+    <span class="marquee-item">Multi-Agent Orchestration</span>
+    <span class="marquee-item">Redis Queues</span>
+    <span class="marquee-item">Perception Layer</span>
+    <span class="marquee-item">Agent Marketplace</span>
+  </div>
+</div>
+
+<!-- ── PROBLEM ── -->
 <section class="section">
-  <div class="container">
-    <div class="section-label reveal">Work</div>
-    <h2 class="section-title reveal reveal-d1">What we've <em style="font-style:italic;color:var(--text2)">built</em></h2>
-
-    <div class="work-tabs reveal reveal-d2">
-      <button class="work-tab active" onclick="switchWork('completed', this)">Completed</button>
-      <button class="work-tab" onclick="switchWork('roadmap', this)">Roadmap</button>
-    </div>
-
-    <div id="work-completed" class="work-panel active">
-      <div class="project-grid">
-
-        <div class="project-card reveal">
-          <div class="project-preview" style="background:linear-gradient(135deg,#080d14,#0d1520)">
-            <div style="text-align:center">
-              <div style="font-size:32px;margin-bottom:8px">🎯</div>
-              <div style="font-family:var(--fm);font-size:10px;color:var(--accent);letter-spacing:0.08em">LIVE BETA</div>
-            </div>
-            <div style="position:absolute;bottom:12px;right:12px"><span class="badge badge-green badge-pulse">Live</span></div>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">AI Agent</div>
-            <div class="project-name">Sales Lead Gen Agent</div>
-            <p class="project-desc">Auto-identifies, enriches & sequences personalised outreach to ideal prospects via WhatsApp and Email. Free for first 50 users.</p>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <a href="pages/contact.html?agent=Sales+Lead+Gen" class="btn btn-primary btn-sm">Get access →</a>
-              <button onclick="openDemo()" class="btn btn-outline btn-sm" style="display:inline-flex;align-items:center;gap:6px">▶ Watch demo</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-d1">
-          <div class="project-preview" style="background:linear-gradient(135deg,#0d0018,#1a0533)">
-            <div class="b-mock">
-              <div class="b-bar"><div class="b-dot" style="background:#ff5f57"></div><div class="b-dot" style="background:#ffbd2e"></div><div class="b-dot" style="background:#28c840"></div></div>
-              <div class="b-body">
-                <div class="b-line" style="width:65%;background:rgba(167,139,250,0.35)"></div>
-                <div class="b-line" style="width:90%"></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:3px">
-                  <div style="height:24px;border-radius:2px;background:rgba(167,139,250,0.12)"></div>
-                  <div style="height:24px;border-radius:2px;background:rgba(167,139,250,0.08)"></div>
-                  <div style="height:24px;border-radius:2px;background:rgba(167,139,250,0.06)"></div>
-                  <div style="height:24px;border-radius:2px;background:rgba(255,255,255,0.03)"></div>
-                </div>
-              </div>
-            </div>
-            <div style="position:absolute;bottom:12px;right:12px"><span class="badge badge-green">Live</span></div>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">E-Commerce · WordPress</div>
-            <div class="project-name">Arton360</div>
-            <p class="project-desc">Custom Print-on-Demand WooCommerce store with product customisation engine and automated order management.</p>
-            <a href="https://arton360.com" target="_blank" class="btn btn-outline btn-sm">Visit site →</a>
-          </div>
-        </div>
-
-        <div class="project-card reveal reveal-d2">
-          <div class="project-preview" style="background:linear-gradient(135deg,#050e1a,#0a1628)">
-            <div class="b-mock">
-              <div class="b-bar"><div class="b-dot" style="background:#ff5f57"></div><div class="b-dot" style="background:#ffbd2e"></div><div class="b-dot" style="background:#28c840"></div></div>
-              <div class="b-body">
-                <div class="b-line" style="width:75%;background:rgba(200,245,90,0.25)"></div>
-                <div class="b-line" style="width:92%"></div>
-                <div style="display:flex;gap:3px;margin-top:3px">
-                  <div style="flex:1;height:30px;border-radius:2px;background:rgba(200,245,90,0.07)"></div>
-                  <div style="flex:1;height:30px;border-radius:2px;background:rgba(200,245,90,0.05)"></div>
-                  <div style="flex:1;height:30px;border-radius:2px;background:rgba(200,245,90,0.03)"></div>
-                </div>
-              </div>
-            </div>
-            <div style="position:absolute;bottom:12px;right:12px"><span class="badge badge-green">Live</span></div>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">B2B Wholesale · MSME</div>
-            <div class="project-name">SMS Foods</div>
-            <p class="project-desc">B2B wholesale portal for an MSME food business with bulk pricing, GST-ready enquiry system, and WhatsApp ordering.</p>
-            <a href="https://smsfoods.co.in" target="_blank" class="btn btn-outline btn-sm">Visit site →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="work-roadmap" class="work-panel">
-      <p style="font-size:14px;color:var(--text2);margin-bottom:28px;max-width:520px">AI agents and tools currently in development — building one by one and shipping publicly as each goes live.</p>
-      <div class="agents-list">
-        <div class="agent-row reveal"><div class="agent-row-icon">🎧</div><div class="agent-row-name">Customer Support AI</div><span class="badge badge-gold">Building Q2</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">📄</div><div class="agent-row-name">Doc & Report Automation</div><span class="badge badge-gold">Building Q2</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">⚖️</div><div class="agent-row-name">Legal Contract Analyzer</div><span class="badge badge-gold">Building Q2</span><div class="agent-row-cat">Legal</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">👥</div><div class="agent-row-name">HR & Recruitment Agent</div><span class="badge badge-gold">Building Q2</span><div class="agent-row-cat">HR</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">📊</div><div class="agent-row-name">Data Analysis Agent</div><span class="badge badge-gold">Building Q3</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">💻</div><div class="agent-row-name">Code Gen & Debug Agent</div><span class="badge badge-gold">Building Q3</span><div class="agent-row-cat">Tech</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🔍</div><div class="agent-row-name">Multi-Doc Comparison</div><span class="badge badge-gold">Building Q3</span><div class="agent-row-cat">Legal</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🔬</div><div class="agent-row-name">Research & Analysis</div><span class="badge badge-gold">Building Q3</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🛍️</div><div class="agent-row-name">E-Commerce Personalisation</div><span class="badge badge-gold">Building Q4</span><div class="agent-row-cat">Sales</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">⚙️</div><div class="agent-row-name">Business Process Agent</div><span class="badge badge-gold">Building Q4</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">💬</div><div class="agent-row-name">Document Q&A System</div><span class="badge badge-gold">Building Q4</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🏥</div><div class="agent-row-name">Healthcare Diagnostic AI</div><span class="badge badge-red">Planning</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🏢</div><div class="agent-row-name">Enterprise Doc Intelligence</div><span class="badge badge-red">Planning</span><div class="agent-row-cat">Operations</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🧠</div><div class="agent-row-name">Custom Fine-Tune Model</div><span class="badge badge-red">Planning</span><div class="agent-row-cat">Tech</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">🕸️</div><div class="agent-row-name">Multi-Agent Platform</div><span class="badge badge-red">Planning</span><div class="agent-row-cat">Tech</div></div>
-        <div class="agent-row reveal"><div class="agent-row-icon">⌨️</div><div class="agent-row-name">Intelligent CLI Assistant</div><span class="badge badge-red">Planning</span><div class="agent-row-cat">Tech</div></div>
-      </div>
-      <div style="margin-top:28px;padding:16px 20px;border:1px solid var(--border);border-radius:var(--r-lg);font-size:13px;color:var(--text2)">
-        Want early access to any of these? <a href="pages/contact.html" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">Book a call →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
   <div class="container">
     <div class="section-label reveal">What we do</div>
-    <h2 class="section-title reveal reveal-d1">Two services.<br /><em style="font-style:italic;color:var(--text2)">One studio.</em></h2>
-    <p class="section-sub reveal reveal-d2">AI agents that automate your business, and websites that win customers — both built in Gujarat.</p>
-    <div class="services-grid reveal reveal-d2">
+    <h2 class="section-title reveal reveal-d1">Three services.<br /><em style="font-style:italic;color:var(--text2)">One obsession.</em></h2>
+    <p class="section-sub reveal reveal-d2">We automate the repetitive work killing your productivity. No complexity, no enterprise price tag.</p>
+    <div class="services-grid reveal reveal-d2" style="grid-template-columns:1fr 1fr 1fr">
       <div class="service-block">
-        <div class="service-tag">AI Agents</div>
-        <div class="service-title">Automate everything that slows you down</div>
+        <div class="service-tag">Service 01</div>
+        <div class="service-title">Review Intelligence</div>
         <ul class="service-list">
-          <li>WhatsApp, Email & Voice channels</li>
-          <li>Tally, Zoho & CRM integrations</li>
-          <li>Hindi & regional language support</li>
-          <li>Deploy in under 24 hours</li>
+          <li>Analyse Amazon, Zomato, Google reviews</li>
+          <li>Find top complaints & competitor gaps</li>
+          <li>Actionable report in 48–72 hours</li>
+          <li>For D2C brands, restaurants, SaaS</li>
         </ul>
-        <a href="pages/agents.html" class="btn btn-primary">Explore agents →</a>
+        <a href="pages/contact.html" class="btn btn-primary">Book Free Audit →</a>
       </div>
       <div class="service-block">
-        <div class="service-tag">Web Development</div>
-        <div class="service-title">Websites that actually win you customers</div>
+        <div class="service-tag">Service 02</div>
+        <div class="service-title">Custom AI Agents</div>
         <ul class="service-list">
-          <li>Custom WordPress & WooCommerce stores</li>
-          <li>MSME wholesale portals</li>
-          <li>Landing pages & lead generation</li>
-          <li>Delivered in 2 weeks</li>
+          <li>Invoice processing automation</li>
+          <li>Lead follow-up & client onboarding</li>
+          <li>WhatsApp automation</li>
+          <li>Saves 15–20 hours per week</li>
         </ul>
-        <a href="pages/webdev.html" class="btn btn-outline">See web services →</a>
+        <a href="pages/contact.html" class="btn btn-primary">Book Free Audit →</a>
+      </div>
+      <div class="service-block">
+        <div class="service-tag">Product</div>
+        <div class="service-title">LeadGen AI</div>
+        <ul class="service-list">
+          <li>Find 100 qualified leads every week</li>
+          <li>Personalised Email + WhatsApp outreach</li>
+          <li>Live and working right now</li>
+          <li>We use it ourselves to get clients</li>
+        </ul>
+        <a href="https://leadgen.nsai.in" target="_blank" class="btn btn-outline">Try it free ↗</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── 8 LAYERS ── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">The Platform</div>
+    <h2 class="section-title reveal reveal-d1">Eight layers.<br/><em style="font-style:italic;color:var(--text2)">One infrastructure.</em></h2>
+    <p class="section-sub reveal reveal-d2">We're building this the way AWS built cloud — one primitive at a time, done correctly. Three layers are live. The rest follow the same architecture.</p>
+
+    <div class="layers-grid">
+
+      <!-- LIVE -->
+      <div class="layer-card live reveal">
+        <div class="layer-icon">⚡</div>
+        <div class="layer-name">Execution Layer</div>
+        <p class="layer-desc">Agents take actions across any tool safely. Built-in retry, rollback, failure recovery, and audit logging. Connect once, act everywhere.</p>
+        <div class="layer-status">
+          <span class="badge badge-green badge-pulse">Live Beta</span>
+        </div>
+      </div>
+
+      <div class="layer-card live reveal reveal-d1">
+        <div class="layer-icon">🧠</div>
+        <div class="layer-name">Memory Layer</div>
+        <p class="layer-desc">Persistent, multi-tenant memory across sessions. Agents remember past decisions, build institutional knowledge, and improve over time — per company.</p>
+        <div class="layer-status">
+          <span class="badge badge-green badge-pulse">Live Beta</span>
+        </div>
+      </div>
+
+      <div class="layer-card live reveal reveal-d2">
+        <div class="layer-icon">🛡️</div>
+        <div class="layer-name">Trust & Safety Layer</div>
+        <p class="layer-desc">Configurable permissions per company. Full audit logs. Human-in-the-loop approvals for sensitive actions. Kill switch. This unlocks enterprise.</p>
+        <div class="layer-status">
+          <span class="badge badge-green">Partial · Live</span>
+        </div>
+      </div>
+
+      <!-- BUILDING -->
+      <div class="layer-card reveal reveal-d3">
+        <div class="layer-icon">👁️</div>
+        <div class="layer-name">Perception Layer</div>
+        <p class="layer-desc">Real-time event streams so agents sense what's happening across tools automatically — without a human pressing a trigger.</p>
+        <div class="layer-status">
+          <span class="badge badge-gold">Building · Q3 2026</span>
+        </div>
+      </div>
+
+      <div class="layer-card reveal">
+        <div class="layer-icon">🔀</div>
+        <div class="layer-name">Orchestration Layer</div>
+        <p class="layer-desc">Infrastructure for multiple agents to coordinate, delegate, and collaborate. Agent A spins up Agent B. Full visibility into every agent's actions.</p>
+        <div class="layer-status">
+          <span class="badge badge-gold">Building · Q3 2026</span>
+        </div>
+      </div>
+
+      <div class="layer-card reveal reveal-d1">
+        <div class="layer-icon">📊</div>
+        <div class="layer-name">Analytics Layer</div>
+        <p class="layer-desc">Mission control for your agents. Real-time activity feeds, performance metrics, error analysis, and ROI dashboards. Prove value to stakeholders.</p>
+        <div class="layer-status">
+          <span class="badge badge-gold">Building · Q4 2026</span>
+        </div>
+      </div>
+
+      <!-- ROADMAP -->
+      <div class="layer-card reveal reveal-d2">
+        <div class="layer-icon">💬</div>
+        <div class="layer-name">Communications Layer</div>
+        <p class="layer-desc">Smart human-agent communication infrastructure. Right channel, right timing, right format, right person. Two-way — humans respond, agents understand.</p>
+        <div class="layer-status">
+          <span class="badge badge-red">Roadmap · 2027</span>
+        </div>
+      </div>
+
+      <div class="layer-card reveal reveal-d3">
+        <div class="layer-icon">🏪</div>
+        <div class="layer-name">Agent Marketplace</div>
+        <p class="layer-desc">One-click deploy pre-built agents. Revenue share for builders. Network effects — more agents, more users, more agents. The platform play.</p>
+        <div class="layer-status">
+          <span class="badge badge-red">Roadmap · 2027</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AWS comparison -->
+    <div style="margin-top:32px;padding:20px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;align-items:center;gap:14px;" class="reveal">
+      <div style="font-size:20px">💡</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7;">
+        <strong style="color:var(--text)">The AWS analogy is intentional.</strong> AWS launched EC2 first — raw compute — because that was the most painful problem. Everything else followed the same architecture. We launched the Execution Layer first. Everything else follows.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROOF ── -->
 <section class="section">
   <div class="container">
-    <div class="cta-section reveal">
-      <div class="section-label" style="justify-content:center;display:flex">Get in touch</div>
-      <h2 class="section-title" style="margin-bottom:14px">Let's build something<br /><em style="font-style:italic;color:var(--text2)">together</em></h2>
-      <p style="color:var(--text2);margin-bottom:32px;font-size:15px;max-width:400px;margin-left:auto;margin-right:auto">AI agents, a new website, or both. Response within 2 hours on WhatsApp.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a href="pages/contact.html" class="btn btn-primary">Book a free call</a>
-        <a href="mailto:info@nsai.in" class="btn btn-outline">info@nsai.in</a>
+    <div class="section-label reveal">Traction</div>
+    <h2 class="section-title reveal reveal-d1">Real work.<br /><em style="font-style:italic;color:var(--text2)">Real results.</em></h2>
+    <p class="section-sub reveal reveal-d2">Before selling infrastructure to others, we proved it works by building a production agent on top of it ourselves.</p>
+
+    <div class="proof-card reveal">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+        <div>
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Case Study</div>
+          <div style="font-family:var(--fd);font-size:26px;margin-bottom:10px;">Lead Generation Agent</div>
+          <p style="font-size:14px;color:var(--text2);line-height:1.75;max-width:560px;">
+            Fully autonomous B2B outreach agent built entirely on NSAI infrastructure. Finds real businesses via 4 data sources, scores them using <strong style="color:var(--text)">Graph Neural Networks and spatial analysis</strong>, generates personalized outreach per lead, delivers via email and WhatsApp, and auto-follows up on Day 3 and Day 7. Zero manual work after setup.
+          </p>
+        </div>
+        <span class="badge badge-green badge-pulse" style="flex-shrink:0;">Live in Production</span>
       </div>
+
+      <div class="proof-stats">
+        <div class="proof-stat">
+          <div class="proof-stat-val">4</div>
+          <div class="proof-stat-label">Agent pipeline stages</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-val">11</div>
+          <div class="proof-stat-label">AI techniques</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-val">GNN</div>
+          <div class="proof-stat-label">Spatial lead scoring</div>
+        </div>
+        <div class="proof-stat">
+          <div class="proof-stat-val">202</div>
+          <div class="proof-stat-label">SendGrid response code</div>
+        </div>
+      </div>
+
+      <div class="tech-tags">
+        <span class="tech-tag">OPRO</span>
+        <span class="tech-tag">Reflexion</span>
+        <span class="tech-tag">MemGPT</span>
+        <span class="tech-tag">ReAct</span>
+        <span class="tech-tag">LLM-as-Judge</span>
+        <span class="tech-tag">RAG</span>
+        <span class="tech-tag">GNN Spatial Scoring</span>
+        <span class="tech-tag">A/B Testing</span>
+        <span class="tech-tag">Redis Queues</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Celery</span>
+      </div>
+
+      <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="pages/agents.html" class="btn btn-outline btn-sm">See architecture →</a>
+        <a href="pages/contact.html" class="btn btn-primary btn-sm">Build on our infra →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TIMING ── -->
+<section class="section section-alt">
+  <div class="container" style="max-width:680px;">
+    <div class="section-label reveal">Why Now</div>
+    <h2 class="section-title reveal reveal-d1">The infrastructure<br/><em style="font-style:italic;color:var(--text2)">gap is open.</em></h2>
+    <p class="section-sub reveal reveal-d2" style="margin-bottom:40px;">Same way Stripe didn't invent payments — they made payment infrastructure clean and reliable. We're doing that for agent actions. The window is 12–18 months.</p>
+
+    <div class="reveal">
+      <div class="timing-row">
+        <div class="timing-dot"></div>
+        <div class="timing-year">2022–23</div>
+        <div><div class="timing-label">LLMs become capable</div><div class="timing-sub">ChatGPT launches. Everyone builds chatbots. The brain is ready.</div></div>
+      </div>
+      <div class="timing-row">
+        <div class="timing-dot"></div>
+        <div class="timing-year">2024–25</div>
+        <div><div class="timing-label">Everyone tries agents, hits execution wall</div><div class="timing-sub">Agents can reason. Taking real actions safely? Still completely unsolved. Every team rebuilds plumbing from scratch.</div></div>
+      </div>
+      <div class="timing-row">
+        <div class="timing-dot now"></div>
+        <div class="timing-year" style="color:var(--accent);">2026 ←</div>
+        <div><div class="timing-label" style="color:var(--accent);">Infrastructure layer gets built. We are here.</div><div class="timing-sub">Trust is established. Market is ready to let agents act. The rails need to exist. We're building them.</div></div>
+      </div>
+      <div class="timing-row">
+        <div class="timing-dot"></div>
+        <div class="timing-year">2027+</div>
+        <div><div class="timing-label">Agents are everywhere — running on our rails</div><div class="timing-sub">Every company's autonomous agents execute through infrastructure built in 2026. Network effects compound.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EARLY ACCESS CTA ── -->
+<section class="section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="section-label" style="display:flex;justify-content:center;">Get Started</div>
+      <h2 class="section-title" style="margin-bottom:12px;">We're onboarding<br/><em style="font-style:italic;color:var(--text2)">agent teams now.</em></h2>
+      <p style="color:var(--text2);font-size:15px;max-width:420px;margin:0 auto;">If you're building autonomous agents and tired of rebuilding execution infrastructure — talk to us. Currently accepting 10 design partners.</p>
+      <form class="cta-form" onsubmit="handleAccess(event)">
+        <input type="text" placeholder="Your name" required/>
+        <input type="email" placeholder="Work email" required/>
+        <input type="text" placeholder="Company name"/>
+        <textarea placeholder="What are you building with agents?"></textarea>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Request Early Access →</button>
+        <p class="cta-note">No spam. No sales calls. Just a conversation about what you're building.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -337,52 +443,48 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
-      <p class="footer-brand-desc">AI Agents & Web Development for businesses that refuse to stay small. Gandhinagar, Gujarat 🇮🇳</p>
-      <div style="display:flex;gap:6px;margin-top:16px">
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px;">NSAI</div>
+      <p class="footer-brand-desc">Infrastructure for AI agents. Execution, memory, and safety primitives. Built in Gandhinagar, India.</p>
+      <div style="display:flex;gap:6px;margin-top:16px;">
         <a href="#" class="social-btn">𝕏</a>
         <a href="#" class="social-btn">in</a>
-        <a href="https://wa.me/919005988730" class="social-btn">💬</a>
+        <a href="mailto:info@nsai.in" class="social-btn">✉</a>
       </div>
     </div>
-    <div class="footer-col"><h4>AI Agents</h4><ul><li><a href="pages/agents.html">All Agents</a></li><li><a href="pages/agents.html">Roadmap</a></li></ul></div>
-    <div class="footer-col"><h4>Web Dev</h4><ul><li><a href="pages/webdev.html">Services</a></li><li><a href="pages/about-us.html">About Us</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="pages/about.html">About</a></li><li><a href="pages/pricing.html">Pricing</a></li><li><a href="pages/contact.html">Contact</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
+    <div class="footer-col"><h4>Platform</h4><ul>
+      <li><a href="pages/platform.html">All 8 Layers</a></li>
+      <li><a href="pages/platform.html">Roadmap</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Proof</h4><ul>
+      <li><a href="pages/agents.html">Lead Gen Agent</a></li>
+      <li><a href="pages/agents.html">Architecture</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="pages/about-us.html">About</a></li>
+      <li><a href="pages/contact.html">Early Access</a></li>
+      <li><a href="mailto:info@nsai.in">info@nsai.in</a></li>
+    </ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+  <div class="footer-bottom">
+    <span>© 2026 NSAI · All rights reserved.</span>
+    <span>Infrastructure for AI agents 🤖</span>
+  </div>
 </footer>
 
 <script src="js/main.js"></script>
 <script>
-function switchWork(tab, btn) {
-  document.querySelectorAll('.work-tab').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.work-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('work-' + tab).classList.add('active');
+function handleAccess(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Request received!';
+  btn.disabled=true;
+  btn.style.opacity='.7';
+  setTimeout(()=>{btn.textContent='Request Early Access →';btn.disabled=false;btn.style.opacity='';e.target.reset();},3000);
 }
-function openDemo() {
-  const modal = document.getElementById('demoModal');
-  const video = document.getElementById('demoVideo');
-  const placeholder = document.getElementById('demoPlaceholder');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  fetch('assets/demo-sales-leadgen.mp4', { method: 'HEAD' })
-    .then(r => {
-      if (r.ok) { placeholder.style.display = 'none'; video.style.display = 'block'; }
-      else { video.style.display = 'none'; placeholder.style.display = 'flex'; }
-    })
-    .catch(() => { video.style.display = 'none'; placeholder.style.display = 'flex'; });
-}
-function closeDemo() {
-  document.getElementById('demoModal').classList.remove('open');
-  document.body.style.overflow = '';
-  const v = document.getElementById('demoVideo');
-  v.pause(); v.currentTime = 0;
-}
-function closeDemoModal(e) {
-  if (e.target === document.getElementById('demoModal')) closeDemo();
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDemo(); });
 </script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919005988730?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20automation%20audit" target="_blank" style="position:fixed;bottom:24px;right:24px;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.4);transition:transform 0.2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 </body>
 </html>

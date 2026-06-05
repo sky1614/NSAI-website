@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Platform — NSAI</title>
+<meta name="description" content="Eight infrastructure layers for autonomous AI agents."/>
+<link rel="stylesheet" href="../css/style.css"/>
+<style>
+.layer-full{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:36px;margin-bottom:16px;transition:border-color .2s;}
+.layer-full:hover{border-color:var(--border2);}
+.layer-full.live{border-left:3px solid var(--accent);}
+.layer-full.building{border-left:3px solid #e8a800;}
+.layer-full.roadmap{border-left:3px solid var(--text3);}
+.layer-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+.layer-title-row{display:flex;align-items:center;gap:14px;}
+.layer-icon-lg{font-size:28px;}
+.layer-name-lg{font-family:var(--fd);font-size:24px;}
+.layer-body{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:20px;}
+.layer-points{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.layer-points li{font-size:13px;color:var(--text2);padding-left:18px;position:relative;}
+.layer-points li::before{content:'→';position:absolute;left:0;color:var(--accent);}
+.layer-meta{display:flex;gap:8px;flex-wrap:wrap;}
+.code-block{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin-top:20px;font-family:var(--fm);font-size:12px;color:var(--text2);line-height:1.8;overflow-x:auto;}
+.code-block .c-green{color:var(--accent);}
+.code-block .c-dim{color:var(--text3);}
+.code-block .c-str{color:#89d4f5;}
+.status-legend{display:flex;gap:20px;margin-bottom:40px;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:8px;font-family:var(--fm);font-size:11px;color:var(--text2);}
+.legend-bar{width:14px;height:14px;border-radius:3px;}
+@media(max-width:768px){.layer-full{padding:24px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">NSAI</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="platform.html" class="active">Platform</a>
+    <a href="agents.html">Agents</a>
+    <a href="about-us.html">About</a>
+    <a href="contact.html" class="nav-leadgen">Early Access ↗</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Request Access →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="platform.html" onclick="toggleMobileNav()">Platform</a>
+  <a href="agents.html" onclick="toggleMobileNav()">Agents</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Early Access</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="section-label reveal">Platform</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:600px">Eight layers.<br/><em style="font-style:italic;color:var(--text2)">One infrastructure.</em></h1>
+    <p class="section-sub reveal reveal-d2">We're building the AWS for AI agents — one primitive at a time, done correctly. Three layers are live. The rest follow the same architecture.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="status-legend reveal">
+      <div class="legend-item"><div class="legend-bar" style="background:var(--accent);"></div>Live in beta</div>
+      <div class="legend-item"><div class="legend-bar" style="background:#e8a800;"></div>In development</div>
+      <div class="legend-item"><div class="legend-bar" style="background:var(--text3);"></div>Roadmap</div>
+    </div>
+
+    <!-- 1. Execution -->
+    <div class="layer-full live reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">⚡</div>
+          <div>
+            <div class="layer-name-lg">Execution Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 1 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-green badge-pulse">Live Beta</span>
+      </div>
+      <p class="layer-body">The core primitive. Lets agents take actions across any tool — safely, reliably, and with full auditability. Without this layer, every action an agent takes is a hand-coded, fragile API call with no safety net.</p>
+      <ul class="layer-points">
+        <li>Tool registry — any tool connects once, any agent uses it</li>
+        <li>Built-in retry logic, exponential backoff, failure recovery</li>
+        <li>Rollback capability — reverse actions if something goes wrong</li>
+        <li>Every action logged with timestamp, agent ID, result, and duration</li>
+        <li>Permission checks before every execution — agent can't exceed its scope</li>
+      </ul>
+      <div class="layer-meta">
+        <span class="badge badge-blue">SendGrid</span>
+        <span class="badge badge-blue">WhatsApp / Gupshup</span>
+        <span class="badge badge-blue">PostgreSQL</span>
+        <span class="badge badge-blue">Redis</span>
+        <span class="badge badge-blue">Celery</span>
+      </div>
+      <div class="code-block">
+<span class="c-dim"># How an agent executes an action through our layer</span>
+result = execution_layer.run(
+    agent_id=<span class="c-str">"outreach-agent-v2"</span>,
+    action=<span class="c-str">"send_email"</span>,
+    params={<span class="c-str">"to"</span>: lead.email, <span class="c-str">"subject"</span>: msg.subject},
+    safety_check=<span class="c-green">True</span>,   <span class="c-dim"># blocks if agent exceeds permissions</span>
+    audit_log=<span class="c-green">True</span>,      <span class="c-dim"># every action recorded</span>
+    rollback_on_fail=<span class="c-green">True</span>  <span class="c-dim"># auto-reverse on error</span>
+)
+      </div>
+    </div>
+
+    <!-- 2. Memory -->
+    <div class="layer-full live reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">🧠</div>
+          <div>
+            <div class="layer-name-lg">Memory Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 2 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-green badge-pulse">Live Beta</span>
+      </div>
+      <p class="layer-body">Persistent, multi-tenant memory across sessions. Agents remember past decisions, build institutional knowledge per company, and improve over time. Inspired by the MemGPT research paper — implemented in production.</p>
+      <ul class="layer-points">
+        <li>Tiered memory — working memory, episodic, semantic, long-term</li>
+        <li>Multi-tenant isolation — each company's agents have their own memory space</li>
+        <li>OPRO self-optimization — agent evolves better prompts based on outcomes</li>
+        <li>Reflexion failure learning — agent learns from past errors automatically</li>
+        <li>Full conversation memory per lead / entity / session</li>
+      </ul>
+      <div class="layer-meta">
+        <span class="badge badge-blue">MemGPT</span>
+        <span class="badge badge-blue">OPRO</span>
+        <span class="badge badge-blue">Reflexion</span>
+        <span class="badge badge-blue">PostgreSQL</span>
+      </div>
+    </div>
+
+    <!-- 3. Trust & Safety -->
+    <div class="layer-full live reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">🛡️</div>
+          <div>
+            <div class="layer-name-lg">Trust & Safety Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 3 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-green">Partial · Live</span>
+      </div>
+      <p class="layer-body">The enterprise unlock. Every company that wants to deploy autonomous agents asks the same question: "How do we stop it if it goes wrong?" This layer answers that. Configurable per company, auditable by regulators.</p>
+      <ul class="layer-points">
+        <li>Permission engine — define exactly what each agent is allowed to do</li>
+        <li>Human-in-the-loop approvals for sensitive or high-risk actions</li>
+        <li>Kill switch — stop all agent activity instantly, company-wide</li>
+        <li>Blast radius control — limit how many records/actions per hour</li>
+        <li>LLM-as-Judge evaluation — AI evaluates AI output before execution</li>
+        <li>Full compliance audit trail — exportable for regulators</li>
+      </ul>
+      <div class="code-block">
+<span class="c-dim"># Per-company safety configuration</span>
+safety_config = {
+    <span class="c-str">"send_email"</span>: <span class="c-green">True</span>,
+    <span class="c-str">"update_database"</span>: <span class="c-str">"requires_human_approval"</span>,
+    <span class="c-str">"delete_record"</span>: <span class="c-green">False</span>,          <span class="c-dim"># never allowed</span>
+    <span class="c-str">"max_actions_per_hour"</span>: <span class="c-green">100</span>,
+    <span class="c-str">"audit_log"</span>: <span class="c-green">True</span>,
+    <span class="c-str">"kill_switch"</span>: <span class="c-green">True</span>
+}
+      </div>
+    </div>
+
+    <!-- 4. Perception -->
+    <div class="layer-full building reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">👁️</div>
+          <div>
+            <div class="layer-name-lg">Perception Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 4 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-gold">Building · Q3 2026</span>
+      </div>
+      <p class="layer-body">Eyes and ears for agents. Real-time event streams so agents sense what's happening across your systems automatically — without a human pressing a trigger. Agents become proactive, not reactive.</p>
+      <ul class="layer-points">
+        <li>Event subscriptions — agent triggers on email arrival, DB change, calendar event</li>
+        <li>Multi-source sensing — OSM, Google Places, Apollo, Hunter already proven in leadgen</li>
+        <li>Deduplication engine — MD5 fingerprint system prevents duplicate processing</li>
+        <li>GNN spatial scoring — graph neural networks model leads as spatial graphs</li>
+      </ul>
+    </div>
+
+    <!-- 5. Orchestration -->
+    <div class="layer-full building reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">🔀</div>
+          <div>
+            <div class="layer-name-lg">Orchestration Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 5 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-gold">Building · Q3 2026</span>
+      </div>
+      <p class="layer-body">Infrastructure for multiple agents to coordinate, delegate, and collaborate. Agent A spins up Agent B for a subtask. If B fails, A handles it. Full visibility into every agent in the pipeline.</p>
+      <ul class="layer-points">
+        <li>4-agent pipeline already proven in production (Prospector → Scorer → Writer → Delivery)</li>
+        <li>Redis queue communication with per-job isolation</li>
+        <li>Partial failure recovery — if Writer fails, Prospector's work is not lost</li>
+        <li>Agent-to-agent delegation with context passing</li>
+      </ul>
+    </div>
+
+    <!-- 6. Analytics -->
+    <div class="layer-full building reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">📊</div>
+          <div>
+            <div class="layer-name-lg">Analytics & Observability Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 6 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-gold">Building · Q4 2026</span>
+      </div>
+      <p class="layer-body">Mission control for your agents. How do you know if they're working? Where are they failing? How much money are they saving? This layer makes agent ROI visible and provable.</p>
+      <ul class="layer-points">
+        <li>Real-time activity feed — every action as it happens</li>
+        <li>Success rate, speed, cost per action metrics</li>
+        <li>Error analysis — where and why agents fail</li>
+        <li>ROI dashboard — actual $ saved vs cost of running agents</li>
+        <li>A/B testing framework already implemented in leadgen agent</li>
+      </ul>
+    </div>
+
+    <!-- 7. Communications -->
+    <div class="layer-full roadmap reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">💬</div>
+          <div>
+            <div class="layer-name-lg">Communications Layer</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 7 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-red">Roadmap · 2027</span>
+      </div>
+      <p class="layer-body">Smart human-agent communication infrastructure. Right channel, right timing, right format, right person. Two-way — humans respond and agents understand. Makes agents feel collaborative, not alien.</p>
+      <ul class="layer-points">
+        <li>Channel routing — Slack vs email vs SMS vs phone based on urgency</li>
+        <li>Format intelligence — executive summary vs detailed breakdown</li>
+        <li>Timing engine — urgent now vs batch digest vs weekly report</li>
+        <li>Two-way comms — human responds, agent parses and acts</li>
+      </ul>
+    </div>
+
+    <!-- 8. Marketplace -->
+    <div class="layer-full roadmap reveal">
+      <div class="layer-header">
+        <div class="layer-title-row">
+          <div class="layer-icon-lg">🏪</div>
+          <div>
+            <div class="layer-name-lg">Agent Marketplace</div>
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);margin-top:3px;">Layer 8 of 8</div>
+          </div>
+        </div>
+        <span class="badge badge-red">Roadmap · 2027</span>
+      </div>
+      <p class="layer-body">The platform play. One-click deploy pre-built agents. Revenue share for builders. Network effects — more agents attract more users which attract more agent builders. This is how NSAI becomes the App Store for enterprise AI.</p>
+      <ul class="layer-points">
+        <li>Browse pre-built agents — deploy in one click to your infrastructure</li>
+        <li>Revenue share — agent builders earn from every deployment</li>
+        <li>Custom agents — build your own, sell to others on the marketplace</li>
+        <li>Network effects — every new agent makes the platform more valuable</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section reveal" style="margin-top:48px;">
+      <h2 class="section-title" style="margin-bottom:12px;">Build on this<br/><em style="font-style:italic;color:var(--text2)">infrastructure.</em></h2>
+      <p style="color:var(--text2);margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto;">We're onboarding design partners now. Plug your agents into our execution, memory, and safety layers — and stop rebuilding from scratch.</p>
+      <a href="contact.html" class="btn btn-primary">Request Early Access →</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px;">NSAI</div>
+      <p class="footer-brand-desc">Infrastructure for AI agents. Execution, memory, and safety primitives. Built in Gandhinagar, India.</p>
+    </div>
+    <div class="footer-col"><h4>Platform</h4><ul><li><a href="platform.html">All 8 Layers</a></li><li><a href="platform.html">Roadmap</a></li></ul></div>
+    <div class="footer-col"><h4>Proof</h4><ul><li><a href="agents.html">Lead Gen Agent</a></li><li><a href="agents.html">Architecture</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">About</a></li><li><a href="contact.html">Early Access</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Infrastructure for AI agents 🤖</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
