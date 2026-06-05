@@ -123,122 +123,80 @@
   <div class="container">
     <div class="section-label reveal">Our Work</div>
     <h2 class="section-title reveal reveal-d1" style="max-width:600px">Real work.<br /><em style="font-style:italic;color:var(--text2)">Real results.</em></h2>
-    <p class="section-sub reveal reveal-d2" style="margin-bottom:48px">We don't just consult. We build, ship, and run customize real products tailored for your business — no generic solutions.</p>
+    <p class="section-sub reveal reveal-d2" style="margin-bottom:64px">We don't just consult. We build, ship, and run customized real products tailored for your business — no generic solutions.</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
     <!-- LeadGen AI -->
-    <div class="proof-card reveal">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
-        <div>
-          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Product</div>
-          <div style="font-family:var(--fd);font-size:26px;margin-bottom:10px;">LeadGen AI</div>
-          <p style="font-size:14px;color:var(--text2);line-height:1.75;max-width:560px;">Fully autonomous B2B outreach agent. Finds real businesses via 4 data sources, scores them using <strong style="color:var(--text)">Graph Neural Networks and spatial analysis</strong>, generates personalized outreach per lead, delivers via Email and WhatsApp, and auto-follows up on Day 3 and Day 7. Zero manual work after setup.</p>
-        </div>
-        <span class="badge badge-green badge-pulse" style="flex-shrink:0;">Live in Production</span>
-      </div>
-
-      <!-- Video placeholder -->
-      <div style="width:100%;aspect-ratio:4/3;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin:24px 0;display:flex;align-items:center;justify-content:center;position:relative;">
-        <video controls preload="none" style="width:100%;height:100%;object-fit:cover;display:none" id="v-leadgen">
-          <source src="assets/demo-leadgen.mp4" type="video/mp4">
-        </video>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text3)">
-          <div style="font-size:40px;opacity:0.3">▶</div>
-          <div style="font-family:var(--fm);font-size:11px;letter-spacing:0.06em">Demo video coming soon · Place at assets/demo-leadgen.mp4</div>
-        </div>
-      </div>
-
-      <div class="proof-stats">
-        <div class="proof-stat">
-          <div class="proof-stat-val">4</div>
-          <div class="proof-stat-label">Agent pipeline stages</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">11</div>
-          <div class="proof-stat-label">AI techniques</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">GNN</div>
-          <div class="proof-stat-label">Spatial lead scoring</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">202</div>
-          <div class="proof-stat-label">SendGrid response code</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:80px;padding-bottom:80px;border-bottom:1px solid var(--border)" class="reveal">
+      <div>
+        <!-- Mac window -->
+        <div style="border-radius:12px;border:1px solid var(--border2);overflow:hidden;background:var(--surface);box-shadow:0 24px 64px rgba(0,0,0,0.4)">
+          <div style="height:36px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:7px">
+            <div style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></div>
+            <div style="width:11px;height:11px;border-radius:50%;background:#febc2e"></div>
+            <div style="width:11px;height:11px;border-radius:50%;background:#28c840"></div>
+            <div style="flex:1;margin:0 10px;height:20px;border-radius:5px;background:rgba(255,255,255,0.06);display:flex;align-items:center;padding:0 10px;font-family:var(--fm);font-size:10px;color:var(--text3)">leadgen.nsai.in</div>
+          </div>
+          <div style="width:100%;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative;">
+            <video controls preload="none" style="width:100%;height:100%;object-fit:cover;display:none" id="v-leadgen">
+              <source src="assets/demo-leadgen.mp4" type="video/mp4">
+            </video>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text3)">
+              <div style="font-size:40px;opacity:0.3">▶</div>
+              <div style="font-family:var(--fm);font-size:11px;letter-spacing:0.06em">Demo coming soon</div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="tech-tags">
-        <span class="tech-tag">OPRO</span>
-        <span class="tech-tag">Reflexion</span>
-        <span class="tech-tag">MemGPT</span>
-        <span class="tech-tag">ReAct</span>
-        <span class="tech-tag">LLM-as-Judge</span>
-        <span class="tech-tag">RAG</span>
-        <span class="tech-tag">GNN Spatial Scoring</span>
-        <span class="tech-tag">A/B Testing</span>
-        <span class="tech-tag">Redis Queues</span>
-        <span class="tech-tag">FastAPI</span>
-        <span class="tech-tag">PostgreSQL</span>
-        <span class="tech-tag">Celery</span>
+      <div>
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Product</div>
+        <div style="font-family:var(--fd);font-size:32px;margin-bottom:14px">LeadGen AI</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:24px">Fully autonomous B2B outreach agent. Finds 100 qualified leads every week, scores them using Graph Neural Networks, and sends personalised outreach via Email + WhatsApp — zero manual work after setup.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px">
+          <span class="badge badge-green badge-pulse">Live in Production</span>
+          <span class="badge badge-blue">SaaS · B2B</span>
+          <span class="badge badge-gold">India-first</span>
+        </div>
+        <a href="pages/leadgen.html" target="_blank" class="btn btn-primary">Learn more ↗</a>
       </div>
     </div>
 
-<!-- Arton360 -->
-    <div class="proof-card reveal">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
-        <div>
-          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;">Client Product</div>
-          <div style="font-family:var(--fd);font-size:26px;margin-bottom:10px;">Arton360</div>
-          <p style="font-size:14px;color:var(--text2);line-height:1.75;max-width:560px;">Browser-based AI-assisted design studio where artists upload artwork, preview on 33+ T-shirt variants in real time, and publish directly to the marketplace in under 5 minutes — no technical knowledge required. Every new design goes live in 60 seconds with 297 auto-generated product variations.</p>
-        </div>
-        <span class="badge badge-green" style="flex-shrink:0;">Live</span>
-      </div>
-
-      <!-- Video placeholder -->
-      <div style="width:100%;aspect-ratio:4/3;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin:24px 0;display:flex;align-items:center;justify-content:center;position:relative;">
-        <video controls preload="none" style="width:100%;height:100%;object-fit:cover;display:none" id="v-arton">
-          <source src="assets/demo-arton360.mp4" type="video/mp4">
-        </video>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text3)">
-          <div style="font-size:40px;opacity:0.3">▶</div>
-          <div style="font-family:var(--fm);font-size:11px;letter-spacing:0.06em">Demo video coming soon · Place at assets/demo-arton360.mp4</div>
-        </div>
-      </div>
-
-      <div class="proof-stats">
-        <div class="proof-stat">
-          <div class="proof-stat-val">33+</div>
-          <div class="proof-stat-label">T-shirt color variants</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">297</div>
-          <div class="proof-stat-label">Auto-generated variations</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">60s</div>
-          <div class="proof-stat-label">Publish to live</div>
-        </div>
-        <div class="proof-stat">
-          <div class="proof-stat-val">48hr</div>
-          <div class="proof-stat-label">Auto launch discount</div>
+    <!-- Arton360 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center" class="reveal">
+      <div style="order:2">
+        <!-- Mac window -->
+        <div style="border-radius:12px;border:1px solid var(--border2);overflow:hidden;background:var(--surface);box-shadow:0 24px 64px rgba(0,0,0,0.4)">
+          <div style="height:36px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:7px">
+            <div style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></div>
+            <div style="width:11px;height:11px;border-radius:50%;background:#febc2e"></div>
+            <div style="width:11px;height:11px;border-radius:50%;background:#28c840"></div>
+            <div style="flex:1;margin:0 10px;height:20px;border-radius:5px;background:rgba(255,255,255,0.06);display:flex;align-items:center;padding:0 10px;font-family:var(--fm);font-size:10px;color:var(--text3)">arton360.com</div>
+          </div>
+          <div style="width:100%;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center;position:relative;">
+            <video controls preload="none" style="width:100%;height:100%;object-fit:cover;display:none" id="v-arton">
+              <source src="assets/demo-arton360.mp4" type="video/mp4">
+            </video>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--text3)">
+              <div style="font-size:40px;opacity:0.3">▶</div>
+              <div style="font-family:var(--fm);font-size:11px;letter-spacing:0.06em">Demo coming soon</div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="tech-tags">
-        <span class="tech-tag">WooCommerce</span>
-        <span class="tech-tag">Dokan</span>
-        <span class="tech-tag">WordPress</span>
-        <span class="tech-tag">Custom Design Studio</span>
-        <span class="tech-tag">Multi-Vendor</span>
-        <span class="tech-tag">Auto Discounting</span>
-        <span class="tech-tag">Razorpay</span>
-      </div>
-
-      <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
-        <a href="https://arton360.com" target="_blank" class="btn btn-outline btn-sm">Visit site →</a>
+      <div style="order:1">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Client Product</div>
+        <div style="font-family:var(--fd);font-size:32px;margin-bottom:14px">ArtOn360</div>
+        <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:24px">Multi-vendor print-on-demand marketplace. Artists upload artwork, preview on 33+ T-shirt variants in real time, and go live in under 60 seconds with 297 auto-generated product variations — no technical knowledge needed.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px">
+          <span class="badge badge-green">Live</span>
+          <span class="badge badge-blue">E-Commerce · POD</span>
+          <span class="badge badge-gold">Multi-Vendor</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="pages/arton360.html" target="_blank" class="btn btn-primary">Learn more ↗</a>
+          <a href="https://arton360.com" target="_blank" class="btn btn-outline">Visit site ↗</a>
+        </div>
       </div>
     </div>
-</div>
 
   </div>
 </section>

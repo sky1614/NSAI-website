@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArtOn360 — Executive Summary</title>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; }
+.summary-card-label { font-family: var(--fm); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.summary-card-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.summary-card-desc { font-size: 13px; color: var(--text2); line-height: 1.75; }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+.compare-table th { padding: 10px 14px; text-align: left; font-size: 11px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+.compare-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); color: var(--text2); }
+.compare-table tr:hover td { background: var(--surface); }
+.check { color: var(--accent); }
+.cross { color: var(--text3); }
+.tech-tag { font-family: var(--fm); font-size: 10px; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--border); color: var(--text3); display: inline-flex; margin: 3px; }
+.traction-val { font-family: var(--fd); font-size: 32px; margin-bottom: 6px; }
+.traction-label { font-size: 11px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; }
+.feature-row { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.feature-row:last-child { border-bottom: none; }
+.feature-icon { font-size: 20px; width: 32px; flex-shrink: 0; }
+.feature-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.feature-desc { font-size: 13px; color: var(--text2); line-height: 1.65; }
+@media(max-width:768px){ .summary-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">NSAI</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="agents.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="about-us.html">Team</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Book Free Audit →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">Services</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">Team</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11px;color:var(--text3);margin-bottom:24px;letter-spacing:0.06em;transition:color 0.2s" class="reveal">← Back</a>
+    <div class="section-label reveal">Executive Summary</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:600px">ArtOn360<br /><em style="font-style:italic;color:var(--text2)">Multi-Vendor Print-on-Demand Marketplace.</em></h1>
+    <p class="section-sub reveal reveal-d2">Empowering independent artists to design, publish, and monetize custom apparel — without any technical, manufacturing, or logistics knowledge.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px" class="reveal reveal-d3">
+      <span class="badge badge-green">Live</span>
+      <span class="badge badge-blue">E-Commerce · POD</span>
+      <span class="badge badge-gold">Multi-Vendor</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM + SOLUTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">The Problem</div>
+    <h2 class="section-title reveal reveal-d1">Artists have talent.<br /><em style="font-style:italic;color:var(--text2)">Not infrastructure.</em></h2>
+    <div class="summary-grid">
+      <div class="summary-card reveal">
+        <div class="summary-card-label">Problem</div>
+        <div class="summary-card-title">Limited control on existing platforms</div>
+        <p class="summary-card-desc">Independent artists on Redbubble or Merch by Amazon have limited control over pricing, branding, storefront design, and customer relationships. Monetization infrastructure is scarce — especially in emerging markets like India.</p>
+      </div>
+      <div class="summary-card reveal reveal-d1">
+        <div class="summary-card-label">Solution</div>
+        <div class="summary-card-title">Full vendor ownership</div>
+        <p class="summary-card-desc">ArtOn360 gives artists their own storefront, their own pricing, their own album collections, and direct earnings notifications every time a sale happens — powered by a browser-based design tool that requires zero technical knowledge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FEATURES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">Key Features</div>
+    <h2 class="section-title reveal reveal-d1">Built for artists.<br /><em style="font-style:italic;color:var(--text2)">Powered by automation.</em></h2>
+    <div style="border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:40px" class="reveal">
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">🎨</div>
+        <div><div class="feature-title">AI-Assisted Design Studio</div><div class="feature-desc">Browser-based tool where artists upload artwork, preview on 33+ T-shirt color variants in real time, and publish to the marketplace in under 5 minutes — no design software needed.</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">⚡</div>
+        <div><div class="feature-title">60-Second Publish Pipeline</div><div class="feature-desc">From design tool to live product page in under 60 seconds — auto-generates 297 color/size variations, sets pricing, assigns artwork overlay, and sends the artist a confirmation email automatically.</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">🏷️</div>
+        <div><div class="feature-title">Automated Launch Discounting</div><div class="feature-desc">Every new design automatically receives a 10% launch discount for 48 hours — giving artists immediate visibility and sales momentum with zero manual intervention.</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">🏪</div>
+        <div><div class="feature-title">Multi-Vendor Revenue Infrastructure</div><div class="feature-desc">Each artist gets a dedicated storefront, album organization system, and automated earnings notifications — powered by Dokan + WooCommerce handling payouts, order tracking, and vendor analytics independently per seller.</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">🔍</div>
+        <div><div class="feature-title">Global Product Search</div><div class="feature-desc">Color synonym mapping and artist name lookup so customers find exactly what they want — even if they search "navy" instead of "dark blue".</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px">
+        <div class="feature-icon">📧</div>
+        <div><div class="feature-title">Automated Email Pipeline</div><div class="feature-desc">Publish confirmation, sale notification, and customer thank-you emails — all triggered automatically. No manual follow-up needed from the artist.</div></div>
+      </div>
+      <div class="feature-row" style="padding:16px 24px;border-bottom:none">
+        <div class="feature-icon">🛡️</div>
+        <div><div class="feature-title">Content Filtering & Role-Based Navigation</div><div class="feature-desc">Mature content filtering with blur overlay system. Role-based navigation separates customer and vendor experiences cleanly.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Technology Stack</div>
+    <h2 class="section-title reveal reveal-d1">Built to scale.<br /><em style="font-style:italic;color:var(--text2)">Zero to live in 6 months.</em></h2>
+    <div class="summary-grid">
+      <div class="summary-card reveal">
+        <div class="summary-card-label">Frontend</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">React.js</strong> — Vercel edge network deployment</li>
+          <li><strong style="color:var(--text)">Fabric.js</strong> — canvas engine for real-time design preview</li>
+          <li><strong style="color:var(--text)">Custom REST API bridge</strong> — connects Vercel app to WordPress</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-d1">
+        <div class="summary-card-label">Backend</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">WordPress + WooCommerce</strong> — e-commerce backbone</li>
+          <li><strong style="color:var(--text)">Dokan</strong> — multi-vendor management system</li>
+          <li><strong style="color:var(--text)">GoDaddy Managed Hosting</strong> — infrastructure</li>
+          <li><strong style="color:var(--text)">WP Mail SMTP</strong> — automated email pipeline</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:14px" class="reveal">
+      <span class="tech-tag">React.js</span>
+      <span class="tech-tag">Fabric.js</span>
+      <span class="tech-tag">WordPress</span>
+      <span class="tech-tag">WooCommerce</span>
+      <span class="tech-tag">Dokan</span>
+      <span class="tech-tag">Vercel</span>
+      <span class="tech-tag">WooCommerce Payments</span>
+      <span class="tech-tag">WP Mail SMTP</span>
+      <span class="tech-tag">REST API</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">Traction</div>
+    <h2 class="section-title reveal reveal-d1">Live and growing.<br /><em style="font-style:italic;color:var(--text2)">0 to live in 6 months.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:40px" class="reveal">
+      <div style="text-align:center;padding:24px;border-right:1px solid var(--border)">
+        <div class="traction-val">125+</div>
+        <div class="traction-label">Live products</div>
+      </div>
+      <div style="text-align:center;padding:24px;border-right:1px solid var(--border)">
+        <div class="traction-val">297</div>
+        <div class="traction-label">Variations per design</div>
+      </div>
+      <div style="text-align:center;padding:24px;border-right:1px solid var(--border)">
+        <div class="traction-val">33+</div>
+        <div class="traction-label">Color variants</div>
+      </div>
+      <div style="text-align:center;padding:24px;">
+        <div class="traction-val">60s</div>
+        <div class="traction-label">Publish to live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Competitive Advantage</div>
+    <h2 class="section-title reveal reveal-d1">More control.<br /><em style="font-style:italic;color:var(--text2)">For every artist.</em></h2>
+    <div style="overflow-x:auto;margin-top:32px" class="reveal">
+      <table class="compare-table">
+        <thead><tr>
+          <th>Feature</th><th>ArtOn360</th><th>Redbubble</th><th>Merch by Amazon</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Custom design tool</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Real-time color preview</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Artist sets own price</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Own vendor storefront</td><td class="check">✓</td><td>Limited</td><td class="cross">✗</td></tr>
+          <tr><td>Auto launch discount</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Album organization</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Sub-5 min publish</td><td class="check">✓</td><td class="check">✓</td><td class="cross">✗</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-section reveal">
+      <h2 class="section-title" style="margin-bottom:14px">Want something<br /><em style="font-style:italic;color:var(--text2)">like this built?</em></h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:360px;margin-left:auto;margin-right:auto">We build custom platforms tailored to your business. Book a free call and we'll tell you exactly what it would take.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary">Book a free call →</a>
+        <a href="https://arton360.com" target="_blank" class="btn btn-outline">Visit ArtOn360 ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">Stop doing manually what AI can do for you. ₹1.21L revenue generated. IIT Gandhinagar. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="agents.html">Review Intelligence</a></li><li><a href="agents.html">Custom AI Agents</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about-us.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@nsai.in">info@nsai.in</a></li><li><a href="https://wa.me/919005988730">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

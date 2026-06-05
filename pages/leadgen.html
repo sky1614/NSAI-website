@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeadGen AI — Executive Summary</title>
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; }
+.summary-card-label { font-family: var(--fm); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.summary-card-title { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.summary-card-desc { font-size: 13px; color: var(--text2); line-height: 1.75; }
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+.compare-table th { padding: 10px 14px; text-align: left; font-size: 11px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--border); }
+.compare-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); color: var(--text2); }
+.compare-table tr:hover td { background: var(--surface); }
+.check { color: var(--accent); }
+.cross { color: var(--text3); }
+.agent-pipeline { display: flex; gap: 0; margin-top: 24px; }
+.pipeline-step { flex: 1; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-right: none; position: relative; }
+.pipeline-step:last-child { border-right: 1px solid var(--border); }
+.pipeline-step::after { content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); color: var(--text3); font-size: 14px; z-index: 1; }
+.pipeline-step:last-child::after { display: none; }
+.pipeline-num { font-family: var(--fm); font-size: 10px; color: var(--text3); margin-bottom: 6px; }
+.pipeline-name { font-size: 13px; font-weight: 600; }
+.pipeline-desc { font-size: 11px; color: var(--text2); margin-top: 4px; }
+.tech-tag { font-family: var(--fm); font-size: 10px; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--border); color: var(--text3); display: inline-flex; margin: 3px; }
+.traction-stat { text-align: center; padding: 24px; }
+.traction-val { font-family: var(--fd); font-size: 32px; margin-bottom: 6px; }
+.traction-label { font-size: 11px; color: var(--text3); font-family: var(--fm); text-transform: uppercase; letter-spacing: 0.08em; }
+@media(max-width:768px){ .summary-grid{grid-template-columns:1fr} .agent-pipeline{flex-direction:column} .pipeline-step{border-right:1px solid var(--border);border-bottom:none} .pipeline-step:last-child{border-bottom:1px solid var(--border)} .pipeline-step::after{content:'↓';right:auto;left:50%;top:auto;bottom:-10px;} }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">NSAI</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="agents.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="about-us.html">Team</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
+    <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
+    <a href="contact.html" class="nav-cta">Book Free Audit →</a>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="../index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="agents.html" onclick="toggleMobileNav()">Services</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="about-us.html" onclick="toggleMobileNav()">Team</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11px;color:var(--text3);margin-bottom:24px;letter-spacing:0.06em;transition:color 0.2s" class="reveal">← Back</a>
+    <div class="section-label reveal">Executive Summary</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:600px">LeadGen AI<br /><em style="font-style:italic;color:var(--text2)">Autonomous B2B Outreach.</em></h1>
+    <p class="section-sub reveal reveal-d2">Agentic AI platform that automates the entire B2B outreach pipeline — from finding leads to booking meetings — with zero manual work.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px" class="reveal reveal-d3">
+      <span class="badge badge-green badge-pulse">Live in Production</span>
+      <span class="badge badge-blue">SaaS · B2B</span>
+      <span class="badge badge-gold">India-first</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM + SOLUTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">The Problem</div>
+    <h2 class="section-title reveal reveal-d1">3–4 hours lost daily<br /><em style="font-style:italic;color:var(--text2)">to manual prospecting.</em></h2>
+    <div class="summary-grid">
+      <div class="summary-card reveal">
+        <div class="summary-card-label">Problem</div>
+        <div class="summary-card-title">Manual, generic, mistimed outreach</div>
+        <p class="summary-card-desc">Indian B2B sales teams waste 3–4 hours daily searching directories, copying contacts, writing cold emails one by one. Conversion rates stay below 2% because outreach is generic and sent to the wrong people at the wrong time.</p>
+      </div>
+      <div class="summary-card reveal reveal-d1">
+        <div class="summary-card-label">Gap in existing tools</div>
+        <div class="summary-card-title">Apollo & Salesforce ignore India</div>
+        <p class="summary-card-desc">Existing tools like Apollo and Salesforce are built for US markets — expensive, complex, and ignore India-specific channels like WhatsApp, IndiaMART, and regional languages. No tool covers the full pipeline end to end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <h2 class="section-title reveal reveal-d1">One prompt.<br /><em style="font-style:italic;color:var(--text2)">Full pipeline.</em></h2>
+    <p style="font-size:14px;color:var(--text2);margin-top:16px;margin-bottom:32px;font-family:var(--fm);padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);display:inline-block" class="reveal">"Find 10 IT Staffing leads in Mumbai"</p>
+    <div class="agent-pipeline reveal">
+      <div class="pipeline-step">
+        <div class="pipeline-num">01</div>
+        <div class="pipeline-name">Prospector</div>
+        <div class="pipeline-desc">Finds real companies with high-intent signals across 7 data sources</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">02</div>
+        <div class="pipeline-name">Scorer</div>
+        <div class="pipeline-desc">GNN scores each lead on industry relationships & spatial density</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">03</div>
+        <div class="pipeline-name">Writer</div>
+        <div class="pipeline-desc">Generates personalised email referencing each lead's specific context</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-num">04</div>
+        <div class="pipeline-name">Delivery</div>
+        <div class="pipeline-desc">Sends via Email + WhatsApp, auto-follows up Day 3 & Day 7</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);font-size:13px;color:var(--text2)" class="reveal">
+      Detects positive replies → auto-sends Calendly booking link → switches to WhatsApp if email gets no response. <strong style="color:var(--text)">Zero manual work after setup.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- AI TECHNIQUES -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Technology</div>
+    <h2 class="section-title reveal reveal-d1">11 AI techniques<br /><em style="font-style:italic;color:var(--text2)">in production.</em></h2>
+    <div class="summary-grid" style="margin-top:32px">
+      <div class="summary-card reveal">
+        <div class="summary-card-label">Self-Improvement</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">OPRO</strong> — self-optimizing prompts that improve with each campaign</li>
+          <li><strong style="color:var(--text)">Reflexion</strong> — learns from failures, applies lessons to future runs</li>
+          <li><strong style="color:var(--text)">A/B Testing</strong> — statistically significant prompt optimization</li>
+          <li><strong style="color:var(--text)">Autonomous Loop</strong> — self-corrects when reply rates drop</li>
+        </ul>
+      </div>
+      <div class="summary-card reveal reveal-d1">
+        <div class="summary-card-label">Intelligence</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text2)">
+          <li><strong style="color:var(--text)">GNN</strong> — graph neural network scores leads on industry relationships</li>
+          <li><strong style="color:var(--text)">MemGPT</strong> — three-tier memory across campaigns</li>
+          <li><strong style="color:var(--text)">ReAct</strong> — reasoning traces for every outreach decision</li>
+          <li><strong style="color:var(--text)">RAG</strong> — retrieves best-performing messages as few-shot examples</li>
+          <li><strong style="color:var(--text)">LLM-as-Judge</strong> — evaluates every message on 5 dimensions before sending</li>
+          <li><strong style="color:var(--text)">Constitutional AI</strong> — 10 rules ensuring ethical, compliant outreach</li>
+          <li><strong style="color:var(--text)">Reply Intent Detection</strong> — classifies replies as positive/negative/neutral</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:20px" class="reveal">
+      <span class="tech-tag">OPRO</span><span class="tech-tag">Reflexion</span><span class="tech-tag">MemGPT</span><span class="tech-tag">ReAct</span><span class="tech-tag">LLM-as-Judge</span><span class="tech-tag">RAG</span><span class="tech-tag">GNN Spatial Scoring</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Redis Queues</span><span class="tech-tag">FastAPI</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Celery</span>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD SOURCES -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">Lead Sources</div>
+    <h2 class="section-title reveal reveal-d1">7 data sources.<br /><em style="font-style:italic;color:var(--text2)">Priority ordered.</em></h2>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:32px;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden" class="reveal">
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--surface)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--accent);width:24px">01</div>
+        <div style="font-size:14px;font-weight:600;flex:1">Job Posting Trigger</div>
+        <div style="font-size:12px;color:var(--text3)">Naukri + LinkedIn Jobs — companies actively hiring sales roles</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">02</div>
+        <div style="font-size:14px;font-weight:600;flex:1">IndiaMART</div>
+        <div style="font-size:12px;color:var(--text3)">India's largest B2B directory</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">03</div>
+        <div style="font-size:14px;font-weight:600;flex:1">OpenStreetMap</div>
+        <div style="font-size:12px;color:var(--text3)">Global coverage — 190+ countries</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">04</div>
+        <div style="font-size:14px;font-weight:600;flex:1">Apollo</div>
+        <div style="font-size:12px;color:var(--text3)">275M verified contacts globally</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">05</div>
+        <div style="font-size:14px;font-weight:600;flex:1">Crunchbase</div>
+        <div style="font-size:12px;color:var(--text3)">Recently funded startups</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">06</div>
+        <div style="font-size:14px;font-weight:600;flex:1">Companies House</div>
+        <div style="font-size:12px;color:var(--text3)">UK/EU registered businesses</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;">
+        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);width:24px">07</div>
+        <div style="font-size:14px;font-weight:600;flex:1">LinkedIn</div>
+        <div style="font-size:12px;color:var(--text3)">Decision-maker profiles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Business Model</div>
+    <h2 class="section-title reveal reveal-d1">Subscription SaaS.<br /><em style="font-style:italic;color:var(--text2)">82% gross margin.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px">
+      <div class="summary-card reveal" style="text-align:center">
+        <div class="summary-card-label">Free</div>
+        <div style="font-family:var(--fd);font-size:28px;margin:12px 0">₹0</div>
+        <div style="font-size:13px;color:var(--text2)">50 leads/month · Trial</div>
+      </div>
+      <div class="summary-card reveal reveal-d1" style="text-align:center;border-color:rgba(200,245,90,0.2)">
+        <div class="summary-card-label">Starter</div>
+        <div style="font-family:var(--fd);font-size:28px;margin:12px 0">₹15K<span style="font-size:14px;color:var(--text3)">/mo</span></div>
+        <div style="font-size:13px;color:var(--text2)">500 leads · Email · Auto follow-ups</div>
+      </div>
+      <div class="summary-card reveal reveal-d2" style="text-align:center">
+        <div class="summary-card-label">Growth</div>
+        <div style="font-family:var(--fd);font-size:28px;margin:12px 0">₹35K<span style="font-size:14px;color:var(--text3)">/mo</span></div>
+        <div style="font-size:13px;color:var(--text2)">2,000 leads · WhatsApp + Email</div>
+      </div>
+      <div class="summary-card reveal reveal-d3" style="text-align:center">
+        <div class="summary-card-label">Enterprise</div>
+        <div style="font-family:var(--fd);font-size:28px;margin:12px 0">₹75K+<span style="font-size:14px;color:var(--text3)">/mo</span></div>
+        <div style="font-size:13px;color:var(--text2)">Unlimited · Custom integrations</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px">
+      <div class="summary-card reveal" style="text-align:center">
+        <div class="traction-val">₹8K</div>
+        <div class="traction-label">CAC Target</div>
+      </div>
+      <div class="summary-card reveal reveal-d1" style="text-align:center">
+        <div class="traction-val">₹1.8L</div>
+        <div class="traction-label">LTV Target</div>
+      </div>
+      <div class="summary-card reveal reveal-d2" style="text-align:center">
+        <div class="traction-val">82%</div>
+        <div class="traction-label">Gross Margin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">Differentiation</div>
+    <h2 class="section-title reveal reveal-d1">Built for India.<br /><em style="font-style:italic;color:var(--text2)">Nothing else comes close.</em></h2>
+    <div style="overflow-x:auto;margin-top:32px" class="reveal">
+      <table class="compare-table">
+        <thead><tr>
+          <th>Feature</th><th>LeadGen AI</th><th>Apollo</th><th>Salesforce</th><th>Indian tools</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>India-specific sources</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td>Partial</td></tr>
+          <tr><td>WhatsApp outreach</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Job posting trigger</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Agentic AI pipeline</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Self-optimizing prompts</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Chat-first interface</td><td class="check">✓</td><td class="cross">✗</td><td class="cross">✗</td><td class="cross">✗</td></tr>
+          <tr><td>Price (INR/mo)</td><td>₹15K</td><td>₹85K</td><td>₹2L+</td><td>₹5–20K</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal">Traction</div>
+    <h2 class="section-title reveal reveal-d1">Built in 8 weeks.<br /><em style="font-style:italic;color:var(--text2)">End to end working.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-top:40px" class="reveal">
+      <div class="traction-stat" style="border-right:1px solid var(--border)">
+        <div class="traction-val">500+</div>
+        <div class="traction-label">Leads generated</div>
+      </div>
+      <div class="traction-stat" style="border-right:1px solid var(--border)">
+        <div class="traction-val">12</div>
+        <div class="traction-label">Industries tested</div>
+      </div>
+      <div class="traction-stat" style="border-right:1px solid var(--border)">
+        <div class="traction-val">8wk</div>
+        <div class="traction-label">Build time</div>
+      </div>
+      <div class="traction-stat">
+        <div class="traction-val">Live</div>
+        <div class="traction-label">End-to-end pipeline</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);font-size:13px;color:var(--text2)" class="reveal">
+      Dogfooding: <strong style="color:var(--text)">using LeadGen AI to find customers for LeadGen AI.</strong> Target — 3 paying customers and 2 LOIs by end of Month 1.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-section reveal">
+      <h2 class="section-title" style="margin-bottom:14px">Want early access?<br /><em style="font-style:italic;color:var(--text2)">Let's talk.</em></h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:360px;margin-left:auto;margin-right:auto">30 minutes. We'll show you the live platform and discuss your use case.</p>
+      <a href="contact.html" class="btn btn-primary">Book a free call →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">Stop doing manually what AI can do for you. ₹1.21L revenue generated. IIT Gandhinagar. Gandhinagar, Gujarat 🇮🇳</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="agents.html">Review Intelligence</a></li><li><a href="agents.html">Custom AI Agents</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="about-us.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:info@nsai.in">info@nsai.in</a></li><li><a href="https://wa.me/919005988730">WhatsApp</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Made with ❤️ in Gujarat 🇮🇳</span></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
