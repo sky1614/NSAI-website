@@ -3,31 +3,31 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Lead Gen Agent — NSAI</title>
-<meta name="description" content="Production proof: autonomous B2B lead generation agent built on NSAI infrastructure."/>
+<title>Services — NSAI</title>
 <link rel="stylesheet" href="../css/style.css"/>
 <style>
-.pipeline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative;}
-.pipeline-grid::before{content:'';position:absolute;top:32px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,var(--accent),var(--border),var(--border),var(--accent));z-index:0;}
-.pipeline-step{text-align:center;position:relative;z-index:1;padding:0 12px;}
-.p-num{width:64px;height:64px;border-radius:50%;background:var(--surface);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 16px;}
-.pipeline-step.live .p-num{border-color:rgba(200,245,90,.4);background:rgba(200,245,90,.06);}
-.p-name{font-size:14px;font-weight:600;margin-bottom:6px;}
-.p-desc{font-size:12px;color:var(--text2);line-height:1.6;}
-.tech-section{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;}
-.tech-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;}
-.tech-card-title{font-size:13px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.tech-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.tech-list li{font-size:12px;color:var(--text2);display:flex;align-items:flex-start;gap:8px;}
-.tech-list li::before{content:'→';color:var(--accent);flex-shrink:0;}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;text-align:center;}
-.stat-big{font-family:var(--fd);font-size:36px;color:var(--accent);}
-.stat-sub{font-size:12px;color:var(--text3);font-family:var(--fm);margin-top:4px;}
-@media(max-width:768px){.pipeline-grid{grid-template-columns:repeat(2,1fr);gap:20px;}.pipeline-grid::before{display:none;}.tech-section{grid-template-columns:1fr;}.stat-grid{grid-template-columns:1fr;}}
+.service-detail{padding:64px 0;border-bottom:1px solid var(--border);}
+.service-detail:last-child{border-bottom:none;}
+.service-detail-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start;}
+.service-includes{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.service-includes li{font-size:13px;color:var(--text2);padding-left:16px;position:relative;line-height:1.6;}
+.service-includes li::before{content:'→';position:absolute;left:0;color:var(--text3);}
+.use-case-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.use-case-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;font-size:13px;color:var(--text2);line-height:1.6;}
+.pricing-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin-top:20px;}
+.pricing-box-label{font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.pricing-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text2);padding:6px 0;border-bottom:1px solid var(--border);}
+.pricing-row:last-child{border-bottom:none;}
+.process-row{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.process-row:last-child{border-bottom:none;}
+.process-num{font-family:var(--fm);font-size:11px;color:var(--text3);width:32px;flex-shrink:0;padding-top:2px;}
+.process-title{font-size:14px;font-weight:600;margin-bottom:4px;}
+.process-desc{font-size:13px;color:var(--text2);line-height:1.65;}
+@media(max-width:768px){.service-detail-grid{grid-template-columns:1fr}.use-case-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <nav class="nav">
   <a href="../index.html" class="nav-logo">NSAI</a>
   <div class="nav-links">
@@ -39,7 +39,7 @@
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">☀️</button>
     <button class="nav-hamburger" onclick="toggleMobileNav()">☰</button>
-    <a href="contact.html" class="nav-cta">Request Access →</a>
+    <a href="contact.html" class="nav-cta">Book Free Audit →</a>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
@@ -49,250 +49,217 @@
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
-<!-- Pipeline -->
-<section class="section section-alt">
+<!-- HERO -->
+<section class="page-hero">
   <div class="container">
-    <div class="section-label reveal">Architecture</div>
-    <h2 class="section-title reveal reveal-d1">4-agent pipeline.<br/><em style="font-style:italic;color:var(--text2)">Zero manual steps.</em></h2>
-    <div class="pipeline-grid">
-      <div class="pipeline-step live reveal">
-        <div class="p-num">🔍</div>
-        <div class="p-name">Prospector</div>
-        <p class="p-desc">Finds real businesses from OSM, Google Places, Apollo, Hunter. MD5 deduplication across all sources.</p>
-      </div>
-      <div class="pipeline-step live reveal reveal-d1">
-        <div class="p-num">🎯</div>
-        <div class="p-name">Scorer</div>
-        <p class="p-desc">GNN spatial scoring + AI enrichment. Scores leads 1–10 with fit score, pain points, icebreaker.</p>
-      </div>
-      <div class="pipeline-step live reveal reveal-d2">
-        <div class="p-num">✍️</div>
-        <div class="p-name">Writer</div>
-        <p class="p-desc">Generates personalized email + WhatsApp per lead. LLM-as-Judge evaluates on 5 dimensions before send.</p>
-      </div>
-      <div class="pipeline-step live reveal reveal-d3">
-        <div class="p-num">📤</div>
-        <div class="p-name">Delivery</div>
-        <p class="p-desc">Sends via SendGrid + Gupshup. Auto-schedules Day 3 and Day 7 follow-ups via Celery.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:32px;padding:20px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);font-size:13px;color:var(--text2);line-height:1.7;" class="reveal">
-      <strong style="color:var(--text);">Infrastructure underneath:</strong> Each agent communicates via Redis queues with per-job isolation. If the Writer fails mid-job, the Prospector's work is not lost — state is persisted in PostgreSQL. This is the Orchestration Layer in production.
-    </div>
+    <div class="section-label reveal">What We Build</div>
+    <h1 class="section-title reveal reveal-d1" style="max-width:640px">Every Engagement Starts With<br/><em style="font-style:italic;color:var(--text2)">Understanding Your Problem.</em></h1>
+    <p class="section-sub reveal reveal-d2">Not selling you a package. We spend time understanding what you actually need — then build exactly that.</p>
   </div>
 </section>
 
-<!-- Stats -->
+<!-- SERVICE 1 — AI AGENTS -->
 <section class="section">
   <div class="container">
-    <div class="section-label reveal">Results</div>
-    <h2 class="section-title reveal reveal-d1">Real data.<br/><em style="font-style:italic;color:var(--text2)">Real delivery.</em></h2>
-    <div class="stat-grid">
-      <div class="stat-card reveal">
-        <div class="stat-big">4</div>
-        <div class="stat-sub">Lead sources connected<br/>OSM · Google · Apollo · Hunter</div>
-      </div>
-      <div class="stat-card reveal reveal-d1">
-        <div class="stat-big">202</div>
-        <div class="stat-sub">SendGrid response code<br/>Real emails delivered to Mumbai businesses</div>
-      </div>
-      <div class="stat-card reveal reveal-d2">
-        <div class="stat-big">11</div>
-        <div class="stat-sub">AI techniques<br/>Research papers implemented in production</div>
-      </div>
-    </div>
-
-    <!-- Tech breakdown -->
-    <div class="tech-section">
-      <div class="tech-card reveal">
-        <div class="tech-card-title">🧠 AI Techniques Implemented</div>
-        <ul class="tech-list">
-          <li><strong>OPRO</strong> — self-optimizing prompts. Tracks reply rates per prompt version, uses LLM to evolve better prompts weekly. Diversity score prevents prompt collapse.</li>
-          <li><strong>Reflexion</strong> — failure learning. Agent tracks what went wrong and adjusts behaviour automatically.</li>
-          <li><strong>MemGPT</strong> — tiered memory. Working memory, episodic, long-term. Full conversation memory per lead.</li>
-          <li><strong>ReAct</strong> — reasoning traces. Agent explains its decisions before acting.</li>
-          <li><strong>LLM-as-Judge</strong> — 5-dimension evaluation (personalization, cultural fit, CTA strength, tone, clarity) before every send.</li>
-          <li><strong>RAG</strong> — dynamic few-shots from historical high-performing messages.</li>
-          <li><strong>A/B Testing</strong> — framework for comparing prompt and message variants.</li>
-        </ul>
-      </div>
-      <div class="tech-card reveal reveal-d1">
-        <div class="tech-card-title">⚡ Infrastructure Problems Solved</div>
-        <ul class="tech-list">
-          <li><strong>Multi-source deduplication</strong> — MD5 fingerprint hashing name + company + email + phone prevents duplicates across 4 sources and across agent runs.</li>
-          <li><strong>Async multi-agent pipeline</strong> — 4 agents communicate via Redis queues with per-job isolation. Partial failure recovery — Prospector's work survives Writer failure.</li>
-          <li><strong>GNN spatial scoring</strong> — businesses modeled as nodes in a spatial graph. Geographic demand patterns and business clustering produce dramatically better lead quality than flat-list scoring.</li>
-          <li><strong>LLM self-optimization without collapse</strong> — OPRO implementation maintains diversity score across active prompt versions to prevent all prompts converging to one style.</li>
-        </ul>
+    <div class="service-detail">
+      <div class="service-detail-grid">
+        <div class="reveal">
+          <div class="section-label">Service 01</div>
+          <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);margin-bottom:16px">Autonomous AI<br/>Agent Systems</h2>
+          <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px">We design and build multi-agent pipelines that handle complex, multi-step business workflows autonomously — without a human initiating every step. Our agents observe, plan, act, evaluate their own output, and learn from failure.</p>
+          <div class="pricing-box">
+            <div class="pricing-box-label">Indicative Pricing</div>
+            <div class="pricing-row"><span>Setup</span><span style="color:var(--text)">₹15,000 – ₹75,000</span></div>
+            <div class="pricing-row"><span>Monthly</span><span style="color:var(--text)">₹5,000 – ₹20,000</span></div>
+            <div class="pricing-row"><span>Global Setup</span><span style="color:var(--text)">$800 – $4,000</span></div>
+            <div class="pricing-row"><span>Global Monthly</span><span style="color:var(--text)">$300 – $1,500</span></div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">What is included</div>
+          <ul class="service-includes">
+            <li>Multi-agent orchestration — LangGraph, CrewAI</li>
+            <li>Persistent tiered memory — agents remember context across sessions</li>
+            <li>Tool calling and API integration — agents connect to your existing systems</li>
+            <li>LLM-as-Judge evaluation — every output scored before it reaches the real world</li>
+            <li>Human-in-the-loop approval gates for high-stakes decisions</li>
+            <li>Full audit logging and observability stack</li>
+            <li>Trust and safety layer — configurable permissions, kill switch, constitutional rules</li>
+          </ul>
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:28px;margin-bottom:12px">Use Cases</div>
+          <div class="use-case-grid">
+            <div class="use-case-card">Lead generation and B2B outreach — agent finds, scores, contacts, and follows up automatically</div>
+            <div class="use-case-card">Document automation — invoices, contracts, compliance filings generated and delivered</div>
+            <div class="use-case-card">Customer communication — instant response across WhatsApp, email, and web chat</div>
+            <div class="use-case-card">Operational workflows — any repetitive multi-step process your team does daily</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Full stack -->
-    <div class="tech-card reveal" style="margin-top:14px;">
-      <div class="tech-card-title">🛠️ Full Tech Stack</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <span class="badge badge-blue">Python · FastAPI</span>
-        <span class="badge badge-blue">PostgreSQL · SQLite</span>
-        <span class="badge badge-blue">Redis · Celery</span>
-        <span class="badge badge-blue">Claude Sonnet (primary)</span>
-        <span class="badge badge-blue">GPT-4o-mini (fallback)</span>
-        <span class="badge badge-blue">OpenRouter</span>
-        <span class="badge badge-blue">SendGrid</span>
-        <span class="badge badge-blue">Gupshup WhatsApp API</span>
-        <span class="badge badge-blue">Google Places API</span>
-        <span class="badge badge-blue">OpenStreetMap</span>
-        <span class="badge badge-blue">Apollo.io</span>
-        <span class="badge badge-blue">Hunter.io</span>
-        <span class="badge badge-blue">Razorpay</span>
-        <span class="badge badge-blue">JWT Auth</span>
-        <span class="badge badge-blue">GNN Spatial Scoring</span>
-        <span class="badge badge-blue">React SPA</span>
-        <span class="badge badge-blue">Render · Netlify</span>
+    <!-- SERVICE 2 — DASHBOARDS -->
+    <div class="service-detail">
+      <div class="service-detail-grid">
+        <div class="reveal">
+          <div class="section-label">Service 02</div>
+          <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);margin-bottom:16px">Intelligent<br/>Dashboards</h2>
+          <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px">Real-time operational visibility built around how your organization actually makes decisions — not generic BI tools adapted for your use case. We have built intelligent dashboards for national government institutions.</p>
+          <div style="padding:14px 16px;background:var(--surface);border:1px solid rgba(200,245,90,0.15);border-radius:var(--r);margin-bottom:20px">
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Live Deployments</div>
+            <div style="font-size:13px;color:var(--text2);display:flex;flex-direction:column;gap:5px">
+              <div>— NDSA · National Disaster and Safety Authority</div>
+              <div>— Government Dam Analysis Platform</div>
+            </div>
+          </div>
+          <div class="pricing-box">
+            <div class="pricing-box-label">Indicative Pricing</div>
+            <div class="pricing-row"><span>Setup</span><span style="color:var(--text)">₹25,000 – ₹1,00,000</span></div>
+            <div class="pricing-row"><span>Monthly</span><span style="color:var(--text)">₹5,000 – ₹15,000</span></div>
+            <div class="pricing-row"><span>Global Setup</span><span style="color:var(--text)">$1,000 – $5,000</span></div>
+            <div class="pricing-row"><span>Global Monthly</span><span style="color:var(--text)">$300 – $800</span></div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">What is included</div>
+          <ul class="service-includes">
+            <li>Multi-source data aggregation and normalization</li>
+            <li>Real-time KPI monitoring with automated alerts</li>
+            <li>Anomaly detection — system flags issues before they escalate</li>
+            <li>Role-based access — each user sees what is relevant to them</li>
+            <li>Automated reporting — reports generated and distributed without manual effort</li>
+            <li>Audit trails and access logging</li>
+            <li>Mobile-responsive interface</li>
+          </ul>
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:28px;margin-bottom:12px">Use Cases</div>
+          <div class="use-case-grid">
+            <div class="use-case-card">Government operations — field and administrative teams with synchronized real-time visibility</div>
+            <div class="use-case-card">Enterprise operations — sales pipeline, supply chain, financial performance in one view</div>
+            <div class="use-case-card">Infrastructure monitoring — critical systems with automated anomaly detection</div>
+            <div class="use-case-card">Disaster management — real-time field data aggregation and alert escalation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 3 — WEB PLATFORMS -->
+    <div class="service-detail">
+      <div class="service-detail-grid">
+        <div class="reveal">
+          <div class="section-label">Service 03</div>
+          <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);margin-bottom:16px">Custom Web<br/>Platforms</h2>
+          <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px">Websites built around your actual business and your actual customers — not templates purchased and handed over. We start with a discovery conversation, understand who your customers are, and build accordingly.</p>
+          <div style="padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:20px">
+            <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Live Examples</div>
+            <div style="font-size:13px;color:var(--text2);display:flex;flex-direction:column;gap:5px">
+              <div>— <a href="https://arton360.com" target="_blank" style="color:var(--text)">ArtOn360</a> · Multi-vendor print-on-demand marketplace</div>
+              <div>— Jewellery E-commerce Platform · Custom catalog and checkout</div>
+            </div>
+          </div>
+          <div class="pricing-box">
+            <div class="pricing-box-label">Indicative Pricing</div>
+            <div class="pricing-row"><span>Setup</span><span style="color:var(--text)">₹20,000 – ₹1,00,000</span></div>
+            <div class="pricing-row"><span>Maintenance</span><span style="color:var(--text)">₹3,000 – ₹10,000/mo</span></div>
+            <div class="pricing-row"><span>Global Setup</span><span style="color:var(--text)">$500 – $3,000</span></div>
+            <div class="pricing-row"><span>Global Maintenance</span><span style="color:var(--text)">$100 – $400/mo</span></div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">What is included</div>
+          <ul class="service-includes">
+            <li>Full custom design — no templates</li>
+            <li>Mobile-first, fast-loading</li>
+            <li>SEO foundation built in</li>
+            <li>E-commerce capability if needed</li>
+            <li>CMS so you can manage content yourself</li>
+            <li>Contact forms, enquiry flows, WhatsApp integration</li>
+            <li>Post-launch support — we do not disappear after delivery</li>
+          </ul>
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:28px;margin-bottom:12px">Use Cases</div>
+          <div class="use-case-grid">
+            <div class="use-case-card">E-commerce stores with multi-vendor capability and automated order management</div>
+            <div class="use-case-card">B2B wholesale portals with bulk pricing, GST-ready enquiry, WhatsApp ordering</div>
+            <div class="use-case-card">Landing pages and lead generation sites for coaches, consultants, service businesses</div>
+            <div class="use-case-card">Government and institutional portals with role-based access and document management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 4 — RESEARCH -->
+    <div class="service-detail">
+      <div class="service-detail-grid">
+        <div class="reveal">
+          <div class="section-label">Service 04</div>
+          <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);margin-bottom:16px">AI Research<br/>& Consulting</h2>
+          <p style="font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px">For teams building AI systems that need to be trustworthy — not just impressive in a demo. We conduct active research in LLM hallucination detection and advise teams on production AI architecture decisions.</p>
+          <div style="padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:20px">
+            <div style="font-family:var(--fm);font-size:13px;color:var(--text2)">Engagement: Project-based or retainer. Contact for scoping.</div>
+          </div>
+        </div>
+        <div class="reveal reveal-d1">
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px">What is included</div>
+          <ul class="service-includes">
+            <li>Production AI architecture review</li>
+            <li>Hallucination detection framework implementation</li>
+            <li>Evaluation pipeline design — LLM-as-Judge, RAGAS, DeepEval</li>
+            <li>Agent reliability and safety layer design</li>
+            <li>Technical due diligence for AI systems</li>
+            <li>Research partnerships</li>
+          </ul>
+          <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:28px;margin-bottom:12px">For Who</div>
+          <div class="use-case-grid">
+            <div class="use-case-card">Teams deploying LLMs in high-stakes environments</div>
+            <div class="use-case-card">Organizations needing independent technical review of their AI systems</div>
+            <div class="use-case-card">Startups building on AI infrastructure who need a senior technical advisor</div>
+            <div class="use-case-card">Research institutions collaborating on LLM safety and evaluation</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- HOW WE WORK -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label reveal">How Every Engagement Works</div>
+    <h2 class="section-title reveal reveal-d1" style="max-width:480px">Five steps.<br/><em style="font-style:italic;color:var(--text2)">No surprises.</em></h2>
+    <div style="margin-top:40px;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden" class="reveal">
+      <div class="process-row" style="padding:20px 24px">
+        <div class="process-num">01</div>
+        <div><div class="process-title">Discovery Call — Free</div><div class="process-desc">We spend 30–45 minutes understanding your problem. No pitch. No slides. Just questions and listening.</div></div>
+      </div>
+      <div class="process-row" style="padding:20px 24px">
+        <div class="process-num">02</div>
+        <div><div class="process-title">Proposal</div><div class="process-desc">Within 48 hours we send a clear proposal — scope, timeline, cost, and what success looks like.</div></div>
+      </div>
+      <div class="process-row" style="padding:20px 24px">
+        <div class="process-num">03</div>
+        <div><div class="process-title">Build</div><div class="process-desc">We build in the open. You see progress weekly. No disappearing acts.</div></div>
+      </div>
+      <div class="process-row" style="padding:20px 24px">
+        <div class="process-num">04</div>
+        <div><div class="process-title">Deploy</div><div class="process-desc">We deploy to your environment, set up monitoring, and make sure it runs.</div></div>
+      </div>
+      <div class="process-row" style="padding:20px 24px;border-bottom:none">
+        <div class="process-num">05</div>
+        <div><div class="process-title">Support</div><div class="process-desc">We stay. Post-launch support is included in every engagement. We do not hand over and vanish.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section class="section">
-  <div class="container">
-    <div class="section-label reveal">What we can do for you</div>
-    <h2 class="section-title reveal reveal-d1">Real examples.<br /><em style="font-style:italic;color:var(--text2)">Real automations.</em></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px">
-      <div class="card reveal">
-        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px">AI Agents</div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Vendor Invoice Processing</div><div style="font-size:12px;color:var(--text2)">500+ invoices processed monthly — discrepancies flagged, Tally updated, zero manual entry.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Review Intelligence</div><div style="font-size:12px;color:var(--text2)">Monitors Amazon & Flipkart reviews daily, alerts you instantly when ratings dip below 4 stars.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Govt Tender Monitor</div><div style="font-size:12px;color:var(--text2)">Scans GeM & CPPP portals daily, filters relevant tenders, delivers a digest straight to your phone.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">MIS Report Automation</div><div style="font-size:12px;color:var(--text2)">Raw sales data in, polished management report out — every Monday morning, automatically.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Wholesale Order Workflow</div><div style="font-size:12px;color:var(--text2)">WhatsApp bot handles your entire order-to-dispatch pipeline for distributors end to end.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Competitor Price Tracker</div><div style="font-size:12px;color:var(--text2)">Tracks competitor pricing on Amazon & Flipkart daily, sends you a comparison report every evening.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">KYC & Client Onboarding</div><div style="font-size:12px;color:var(--text2)">Collects documents via WhatsApp, verifies completeness, updates your CRM — no human involved.</div></div>
-        </div>
-      </div>
-      <div class="card reveal reveal-d1">
-        <div style="font-family:var(--fm);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px">Custom Websites</div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Govt Tender Portal</div><div style="font-size:12px;color:var(--text2)">MSME vendor portal with document management, bid tracking, and GeM-ready submission workflow.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Dealer & Distributor Portal</div><div style="font-size:12px;color:var(--text2)">Territory-wise pricing, order management, and inventory visibility for your entire dealer network.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Franchise Network Site</div><div style="font-size:12px;color:var(--text2)">Multi-location website with individual location pages, local SEO, and centralised lead routing.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Export Business Catalogue</div><div style="font-size:12px;color:var(--text2)">Product catalogue with multi-currency pricing, export documentation, and international enquiry forms.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Hospital & Clinic Portal</div><div style="font-size:12px;color:var(--text2)">Appointment booking, doctor profiles, OPD management — patients self-serve, staff focus on care.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Real Estate Portal</div><div style="font-size:12px;color:var(--text2)">Property listings with virtual tours, EMI calculator, and WhatsApp lead capture built in.</div></div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">School & Institute Portal</div><div style="font-size:12px;color:var(--text2)">Fee payment, online admission forms, and result portal — all in one place for parents and students.</div></div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:20px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);font-size:13px;color:var(--text2)" class="reveal">
-      Don't see your use case? <a href="pages/contact.html" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">Book a free call →</a> — we'll tell you if AI can automate it.
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-label reveal">The Platform</div>
-    <h2 class="section-title reveal reveal-d1">Eight layers.<br/><em style="font-style:italic;color:var(--text2)">One infrastructure.</em></h2>
-    <p class="section-sub reveal reveal-d2">We're building this the way AWS built cloud — one primitive at a time, done correctly. Three layers are live. The rest follow the same architecture.</p>
-
-    <div class="layers-grid">
-
-      <!-- LIVE -->
-      <div class="layer-card live reveal">
-        <div class="layer-icon">⚡</div>
-        <div class="layer-name">Execution Layer</div>
-        <p class="layer-desc">Agents take actions across any tool safely. Built-in retry, rollback, failure recovery, and audit logging. Connect once, act everywhere.</p>
-        <div class="layer-status">
-          <span class="badge badge-green badge-pulse">Live Beta</span>
-        </div>
-      </div>
-
-      <div class="layer-card live reveal reveal-d1">
-        <div class="layer-icon">🧠</div>
-        <div class="layer-name">Memory Layer</div>
-        <p class="layer-desc">Persistent, multi-tenant memory across sessions. Agents remember past decisions, build institutional knowledge, and improve over time — per company.</p>
-        <div class="layer-status">
-          <span class="badge badge-green badge-pulse">Live Beta</span>
-        </div>
-      </div>
-
-      <div class="layer-card live reveal reveal-d2">
-        <div class="layer-icon">🛡️</div>
-        <div class="layer-name">Trust & Safety Layer</div>
-        <p class="layer-desc">Configurable permissions per company. Full audit logs. Human-in-the-loop approvals for sensitive actions. Kill switch. This unlocks enterprise.</p>
-        <div class="layer-status">
-          <span class="badge badge-green">Partial · Live</span>
-        </div>
-      </div>
-
-      <!-- BUILDING -->
-      <div class="layer-card reveal reveal-d3">
-        <div class="layer-icon">👁️</div>
-        <div class="layer-name">Perception Layer</div>
-        <p class="layer-desc">Real-time event streams so agents sense what's happening across tools automatically — without a human pressing a trigger.</p>
-        <div class="layer-status">
-          <span class="badge badge-gold">Building · Q3 2026</span>
-        </div>
-      </div>
-
-      <div class="layer-card reveal">
-        <div class="layer-icon">🔀</div>
-        <div class="layer-name">Orchestration Layer</div>
-        <p class="layer-desc">Infrastructure for multiple agents to coordinate, delegate, and collaborate. Agent A spins up Agent B. Full visibility into every agent's actions.</p>
-        <div class="layer-status">
-          <span class="badge badge-gold">Building · Q3 2026</span>
-        </div>
-      </div>
-
-      <div class="layer-card reveal reveal-d1">
-        <div class="layer-icon">📊</div>
-        <div class="layer-name">Analytics Layer</div>
-        <p class="layer-desc">Mission control for your agents. Real-time activity feeds, performance metrics, error analysis, and ROI dashboards. Prove value to stakeholders.</p>
-        <div class="layer-status">
-          <span class="badge badge-gold">Building · Q4 2026</span>
-        </div>
-      </div>
-
-      <!-- ROADMAP -->
-      <div class="layer-card reveal reveal-d2">
-        <div class="layer-icon">💬</div>
-        <div class="layer-name">Communications Layer</div>
-        <p class="layer-desc">Smart human-agent communication infrastructure. Right channel, right timing, right format, right person. Two-way — humans respond, agents understand.</p>
-        <div class="layer-status">
-          <span class="badge badge-red">Roadmap · 2027</span>
-        </div>
-      </div>
-
-      <div class="layer-card reveal reveal-d3">
-        <div class="layer-icon">🏪</div>
-        <div class="layer-name">Agent Marketplace</div>
-        <p class="layer-desc">One-click deploy pre-built agents. Revenue share for builders. Network effects — more agents, more users, more agents. The platform play.</p>
-        <div class="layer-status">
-          <span class="badge badge-red">Roadmap · 2027</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- AWS comparison -->
-    <div style="margin-top:32px;padding:20px 24px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;align-items:center;gap:14px;" class="reveal">
-      <div style="font-size:20px">💡</div>
-      <div style="font-size:13px;color:var(--text2);line-height:1.7;">
-        <strong style="color:var(--text)">The AWS analogy is intentional.</strong> AWS launched EC2 first — raw compute — because that was the most painful problem. Everything else followed the same architecture. We launched the Execution Layer first. Everything else follows.
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
   <div class="container">
     <div class="cta-section reveal">
-      <h2 class="section-title" style="margin-bottom:14px;">This infrastructure<br/><em style="font-style:italic;color:var(--text2)">is now available to you.</em></h2>
-      <p style="color:var(--text2);margin-bottom:28px;max-width:420px;margin-left:auto;margin-right:auto;">Everything that powers this agent — execution layer, memory, safety, orchestration — is being packaged as platform API. Request access to use it for your own agents.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" class="btn btn-primary">Request Early Access →</a>
+      <h2 class="section-title" style="margin-bottom:14px">Not Sure Which<br/><em style="font-style:italic;color:var(--text2)">Service You Need?</em></h2>
+      <p style="color:var(--text2);margin-bottom:32px;max-width:420px;margin-left:auto;margin-right:auto">Start with a free discovery call. Describe your problem. We will tell you honestly what we can build, what it will cost, and whether it is the right investment.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="contact.html" class="btn btn-primary">Book a Free Discovery Call →</a>
+        <a href="mailto:info@nsai.in" class="btn btn-outline">info@nsai.in</a>
       </div>
+      <p style="font-family:var(--fm);font-size:11px;color:var(--text3);margin-top:16px">WhatsApp: +91-8299158393</p>
     </div>
   </div>
 </section>
@@ -300,14 +267,38 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px;">NSAI</div>
-      <p class="footer-brand-desc">Infrastructure for AI agents. Execution, memory, and safety primitives. Built in Gandhinagar, India.</p>
+      <div style="font-family:var(--fd);font-size:20px;margin-bottom:8px">NSAI</div>
+      <p class="footer-brand-desc">Autonomous AI Agents. Intelligent Dashboards. Custom Platforms. Built in India. Trusted by institutions.</p>
+      <div style="display:flex;gap:6px;margin-top:16px">
+        <a href="https://linkedin.com/company/north-star-ai-nsai" target="_blank" class="social-btn">in</a>
+        <a href="https://wa.me/919005988730" target="_blank" class="social-btn">💬</a>
+        <a href="mailto:info@nsai.in" class="social-btn">✉</a>
+      </div>
     </div>
-    <div class="footer-col"><h4>Proof</h4><ul><li><a href="agents.html">Lead Gen Agent</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about-us.html">About</a></li><li><a href="contact.html">Early Access</a></li><li><a href="mailto:info@nsai.in">info@nsai.in</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="agents.html">Autonomous AI Agents</a></li>
+      <li><a href="agents.html">Intelligent Dashboards</a></li>
+      <li><a href="agents.html">Custom Web Platforms</a></li>
+      <li><a href="agents.html">AI Research & Consulting</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="agents.html">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul>
+      <li><a href="mailto:info@nsai.in">info@nsai.in</a></li>
+      <li><a href="https://wa.me/919005988730" target="_blank">+91-8299158393</a></li>
+      <li><a href="https://sky1614.github.io" target="_blank">sky1614.github.io</a></li>
+      <li><a href="https://linkedin.com/in/swapnil-utkarsh" target="_blank">LinkedIn</a></li>
+    </ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 NSAI · All rights reserved.</span><span>Infrastructure for AI agents 🤖</span></div>
+  <div class="footer-bottom">
+    <span>© 2026 North Star AI · All rights reserved.</span>
+    <span>Built in India 🇮🇳</span>
+  </div>
 </footer>
+
 <script src="../js/main.js"></script>
 </body>
 </html>
